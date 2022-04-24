@@ -15,7 +15,7 @@ use App\Http\Controllers\DatapasienController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 

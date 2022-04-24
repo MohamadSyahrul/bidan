@@ -4,7 +4,7 @@
     <a class="navbar-brand m-0" href="https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html"
         target="_blank">
         <img src="{{asset('assets/img/logo-ct.png')}}" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold">Soft UI Dashboard</span>
+        <span class="ms-1 font-weight-bold">Bidan Bu Sri Wahyuni</span>
     </a>
 </div>
 <hr class="horizontal dark mt-0">
