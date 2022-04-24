@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Datapasien;
 use Illuminate\Http\Request;
 
 class DatapasienController extends Controller
@@ -13,7 +14,8 @@ class DatapasienController extends Controller
      */
     public function index()
     {
-        return view('pages.dtpasien.index');
+        $psn = Datapasien::all();
+        return view('pages.dtpasien.index', compact('psn'));
     }
 
     /**
@@ -34,7 +36,9 @@ class DatapasienController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dp = $request->all();
+        Datapasien::create($dp);
+        return redirect()->route('data-pasien.index');
     }
 
     /**
@@ -68,7 +72,10 @@ class DatapasienController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ps = $request->all();
+        $item = Datapasien::findOrFail($id);
+        $item->update($ps);
+        return redirect()->route('data-pasien.index');
     }
 
     /**
@@ -79,6 +86,9 @@ class DatapasienController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Datapasien::findOrFail($id);
+        $item->delete();
+        return redirect()->route('data-pasien.index');
+
     }
 }

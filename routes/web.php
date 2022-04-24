@@ -18,12 +18,17 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('tambah-pasien', function () {
+    return view('pages.dtpasien.create');
+});
+
+
 
 Route::get('/dashboard', function () {
     return view('pages.dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::resource('data-pasien', DatapasienController::class);
+Route::resource('data-pasien', DatapasienController::class)->middleware(['auth']);
 
 
 require __DIR__.'/auth.php';
