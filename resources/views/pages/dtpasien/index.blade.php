@@ -28,7 +28,7 @@ Data Pasien
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                     Jenis Kelamin</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                    Umur</th>
+                                    Tanggal Lahir</th>
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
                         </thead>
@@ -49,7 +49,7 @@ Data Pasien
                                     <span class="text-xs font-weight-bold">{{$item->jenis_kelamin}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->umur}}</span>
+                                    <span class="text-xs font-weight-bold">{{$item->tgl_lahir}}</span>
                                 </td>
                                 <td class="align-middle">
                                     <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
@@ -135,9 +135,9 @@ Data Pasien
                     </div>
 
                     <div class="form-group">
-                        <label for="umur-pasien" class="col-form-label">Umur Pasien:</label>
-                        <input type="text" class="form-control" name="umur" placeholder="Contoh: 20 thn"
-                            id="umur-pasien">
+                        <label for="tangal-lahir" class="col-form-label">Tanggal Lahir:</label>
+                        <input type="date" class="form-control" name="tgl_lahir"
+                            id="tangal-lahir">
                     </div>
 
                     <div class="form-group">
@@ -185,8 +185,8 @@ Data Pasien
                     </div>
 
                     <div class="form-group">
-                        <label for="umur-pasien" class="col-form-label">Umur Pasien:</label>
-                        <input type="text" class="form-control" name="umur" value="{{ $item->umur }}" id="umur-pasien">
+                        <label for="tgl-lahir" class="col-form-label">Tanggal Lahir:</label>
+                        <input type="date" class="form-control" name="tgl_lahir" value="{{ $item->tgl_lahir }}" id="tgl-lahir">
                     </div>
 
                     <div class="form-group">

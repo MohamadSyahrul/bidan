@@ -18,7 +18,7 @@ class CreateTbPasienTable extends Migration
             $table->string('nama');
             $table->string('alamat');
             $table->char('jenis_kelamin', 1);
-            $table->integer('umur');
+            $table->date('tgl_lahir');
             $table->timestamps();
         });
     }
