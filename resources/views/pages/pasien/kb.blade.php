@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-Pasien Bayi
+Pasien KB
 @endsection
 {{-- @push('plugin-style')
     <link id="pagestyle" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
@@ -14,7 +14,7 @@ Pasien Bayi
                 <button type="button" class="btn bg-gradient-info float-end" data-bs-toggle="modal"
                     data-bs-target="#exampleModalMessage">
                     Tambah</button>
-                <h6 class="float-start">Data Pasien Bayi</h6>
+                <h6 class="float-start">Data Pasien KB</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
@@ -26,43 +26,40 @@ Pasien Bayi
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                     Alamat</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                    Keluhan</th>
+                                    Nama Suami</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Berat Badan</th>
+                                        Suntik KB</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                    Tanggal Lahir</th>
+                                    Tanggal KB</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                    Tanggal Periksa</th>
+                                    Tanggal Kembali</th>
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($psnbayi as $item)
+                            @foreach ($pskb as $item)
                             <tr>
                                 <td>
                                     <div class="d-flex px-2">
                                         <div class="my-auto">
-                                            {{-- @if ($item->dataPasien) --}}
-                                            <h6 class="mb-0 text-sm">{{$item->dataPasien->nama ?? ''}}</h6>
-                                            {{-- @endif --}}
-                                            {{-- <h6 class="mb-0 text-sm"></h6> --}}
+                                            <h6 class="mb-0 text-sm">{{$item->dt_pasien->nama}}</h6>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="text-sm font-weight-bold mb-0">{{$item->dataPasien->alamat ?? ''}}</p>
+                                    <p class="text-sm font-weight-bold mb-0">{{$item->dt_pasien->alamat}}</p>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->keluhan}}</span>
+                                    <span class="text-xs font-weight-bold">{{$item->nama_suami}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->berat_badan}}</span>
+                                    <span class="text-xs font-weight-bold">{{$item->suntik_kb}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->dataPasien->tgl_lahir ?? ''}}</span>
+                                    <span class="text-xs font-weight-bold">{{$item->tgl_kb}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->tgl_periksa}}</span>
+                                    <span class="text-xs font-weight-bold">{{$item->tgl_kembali}}</span>
                                 </td>
                                 <td class="align-middle">
                                     <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
@@ -132,11 +129,11 @@ Pasien Bayi
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('pasien-bayi.store')}}" method="POST">
+                <form action="{{route('pasien-kb.store')}}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="id_pasienbayi" class="col-form-label">Nama Pasien:</label>
-                        <select class="form-control" id="id_pasienbayi" name="id_pasienbayi">
+                        <label for="id_pasien" class="col-form-label">Nama Pasien:</label>
+                        <select class="form-control" id="id_pasien" name="id_pasien">
                             <option>Pilih...</option>
                             @foreach ($nmapasien as $item)
                                 <option value="{{$item->id}}">{{$item->nama}}</option>
@@ -145,18 +142,22 @@ Pasien Bayi
                     </div>
 
                     <div class="form-group">
-                        <label for="keluhan" class="col-form-label">Keluhan:</label>
-                        <input type="text" class="form-control" name="keluhan"
-                            id="keluhan">
+                        <label for="nama_suami" class="col-form-label">Nama Suami:</label>
+                        <input type="text" class="form-control" name="nama_suami"
+                            id="nama_suami">
                     </div>
                     <div class="form-group">
-                        <label for="berat_badan" class="col-form-label">Berat Badan:</label>
-                        <input type="text" class="form-control" name="berat_badan"
-                            id="berat_badan">
+                        <label for="suntik_kb" class="col-form-label">Suntik KB:</label>
+                        <input type="text" class="form-control" name="suntik_kb" placeholder="1 bulan"
+                            id="suntik_kb">
                     </div>
                     <div class="form-group">
-                        <label for="tgl_periksa" class="col-form-label">Tgl periksa:</label>
-                        <input type="date" class="form-control" id="tgl_periksa" name="tgl_periksa">
+                        <label for="tgl_kb" class="col-form-label">Tgl KB:</label>
+                        <input type="date" class="form-control" id="tgl_kb" name="tgl_kb">
+                    </div>
+                    <div class="form-group">
+                        <label for="tgl_kembali" class="col-form-label">Tgl Kembali:</label>
+                        <input type="date" class="form-control" id="tgl_kembali" name="tgl_kembali">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
@@ -170,7 +171,7 @@ Pasien Bayi
 </div>
 
 {{-- modal edit --}}
-@foreach ($psnbayi as $item)
+@foreach ($pskb as $item)
 <div class="modal fade" id="edit-data{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="edit-data"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -182,7 +183,7 @@ Pasien Bayi
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('pasien-bayi.update',$item->id)}}" method="POST">
+                <form action="{{route('pasien-kb.update',$item->id)}}" method="POST">
                     @method('PUT')
                     @csrf
                     <div class="form-group">

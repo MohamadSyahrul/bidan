@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\PasienKB;
 use App\Models\PasienBayi;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -21,5 +22,9 @@ class Datapasien extends Model
     public function pasienSakit()
     {
         return $this->hasOne( PasienBayi::class,'id_pasiensakit', 'id' );
+    }
+    public function pasienKB()
+    {
+        return $this->hasOne( PasienKB::class,'id_pasien', 'id' );
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePasienbayiTable extends Migration
+class CreatePasienKBSTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreatePasienbayiTable extends Migration
      */
     public function up()
     {
-        Schema::create('pasienbayi', function (Blueprint $table) {
+        Schema::create('pasien_kb', function (Blueprint $table) {
             $table->id();
-            $table->string('keluhan');
-            $table->string('berat_badan');
-            $table->date('tgl_periksa');
-            $table->foreignId('id_pasienbayi')->references('id')->on('tb_pasien')->onDelete('cascade');
+            $table->string('nama_suami');
+            $table->string('suntik_kb');
+            $table->date('tgl_kb');
+            $table->date('tgl_kembali');
+            $table->foreignId('id_pasien')->references('id')->on('tb_pasien')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreatePasienbayiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pasienbayi');
+        Schema::dropIfExists('pasien_k_b_s');
     }
 }

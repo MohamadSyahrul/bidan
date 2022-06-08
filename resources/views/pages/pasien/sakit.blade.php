@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-Data Pasien
+Pasien Sakit
 @endsection
 {{-- @push('plugin-style')
     <link id="pagestyle" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />

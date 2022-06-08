@@ -15,9 +15,9 @@ class CreatePasiensakitTable extends Migration
     {
         Schema::create('pasiensakit', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_pasiensakit');
             $table->string('keluhan');
             $table->date('tgl_periksa');
+            $table->foreignId('id_pasiensakit')->references('id')->on('tb_pasien')->onDelete('cascade');
             $table->timestamps();
         });
     }

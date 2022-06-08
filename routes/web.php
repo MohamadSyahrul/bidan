@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PasienKBController;
 use App\Http\Controllers\DatapasienController;
 use App\Http\Controllers\PasienBayiController;
 use App\Http\Controllers\PasienSakitController;
@@ -33,6 +34,7 @@ Route::get('/dashboard', function () {
 Route::resource('data-pasien', DatapasienController::class)->middleware(['auth']);
 Route::resource('pasien-sakit', PasienSakitController::class)->middleware(['auth']);
 Route::resource('pasien-bayi', PasienBayiController::class)->middleware(['auth']);
+Route::resource('pasien-kb', PasienKBController::class)->middleware(['auth']);
 
 
 

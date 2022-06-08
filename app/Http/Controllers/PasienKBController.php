@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PasienKB;
 use App\Models\Datapasien;
-use App\Models\PasienBayi;
 use Illuminate\Http\Request;
 
-class PasienBayiController extends Controller
+class PasienKBController extends Controller
 {
-        /**
+           /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -16,9 +16,8 @@ class PasienBayiController extends Controller
     public function index()
     {
         $nmapasien = Datapasien::all();
-        $psnbayi = PasienBayi::with(['dataPasien'])->get();
-        // dd($psnbayi->dataPasien->nama);
-        return view('pages.pasien.bayi', compact('psnbayi','nmapasien'));
+        $pskb = PasienKB::with(['dt_pasien'])->get();
+        return view('pages.pasien.kb', compact('pskb','nmapasien'));
     }
 
     /**
@@ -40,8 +39,8 @@ class PasienBayiController extends Controller
     public function store(Request $request)
     {
         $dp = $request->all();
-        PasienBayi::create($dp);
-        return redirect()->route('pasien-bayi.index');
+        PasienKB::create($dp);
+        return redirect()->route('pasien-kb.index');
     }
 
     /**
@@ -76,9 +75,9 @@ class PasienBayiController extends Controller
     public function update(Request $request, $id)
     {
         $ps = $request->all();
-        $item = PasienBayi::findOrFail($id);
+        $item = PasienKB::findOrFail($id);
         $item->update($ps);
-        return redirect()->route('pasien-bayi.index');
+        return redirect()->route('pasien-kb.index');
     }
 
     /**
@@ -89,9 +88,9 @@ class PasienBayiController extends Controller
      */
     public function destroy($id)
     {
-        $item = PasienBayi::findOrFail($id);
+        $item = PasienKB::findOrFail($id);
         $item->delete();
-        return redirect()->route('pasien-bayi.index');
+        return redirect()->route('pasien-kb.index');
 
     }
 }
