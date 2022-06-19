@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Hamil;
+use App\Models\Bersalin;
 use App\Models\PasienKB;
 use App\Models\PasienBayi;
 use Illuminate\Database\Eloquent\Model;
@@ -26,5 +28,13 @@ class Datapasien extends Model
     public function pasienKB()
     {
         return $this->hasOne( PasienKB::class,'id_pasien', 'id' );
+    }
+    public function pasienBersalin()
+    {
+        return $this->hasOne( Bersalin::class, 'id' );
+    }
+    public function pasienHamil()
+    {
+        return $this->hasOne( Hamil::class, 'id' );
     }
 }

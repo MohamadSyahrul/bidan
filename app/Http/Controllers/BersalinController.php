@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bersalin;
 use App\Models\Datapasien;
-use App\Models\PasienBayi;
 use Illuminate\Http\Request;
 
-class PasienBayiController extends Controller
+class BersalinController extends Controller
 {
-        /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -16,9 +16,8 @@ class PasienBayiController extends Controller
     public function index()
     {
         $nmapasien = Datapasien::all();
-        $psnbayi = PasienBayi::with(['dataPasien'])->get();
-        // dd($psnbayi);
-        return view('pages.pasien.bayi', compact('psnbayi','nmapasien'));
+        $psnbersalin = Bersalin::with(['DataPasien'])->get();
+        return view('pages.pasien.bersalin', compact('psnbersalin', 'nmapasien'));
     }
 
     /**
@@ -39,18 +38,16 @@ class PasienBayiController extends Controller
      */
     public function store(Request $request)
     {
-        $dp = $request->all();
-        PasienBayi::create($dp);
-        return redirect()->route('pasien-bayi.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Bersalin  $bersalin
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Bersalin $bersalin)
     {
         //
     }
@@ -58,10 +55,10 @@ class PasienBayiController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Bersalin  $bersalin
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Bersalin $bersalin)
     {
         //
     }
@@ -70,28 +67,22 @@ class PasienBayiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Bersalin  $bersalin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Bersalin $bersalin)
     {
-        $ps = $request->all();
-        $item = PasienBayi::findOrFail($id);
-        $item->update($ps);
-        return redirect()->route('pasien-bayi.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Bersalin  $bersalin
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Bersalin $bersalin)
     {
-        $item = PasienBayi::findOrFail($id);
-        $item->delete();
-        return redirect()->route('pasien-bayi.index');
-
+        //
     }
 }

@@ -15,6 +15,6 @@ class PasienBayi extends Model
 
     public function dataPasien()
     {
-        return $this->belongsTo( Datapasien::class, 'id' );
+        return $this->belongsTo( Datapasien::class, 'id_pasienbayi', 'id' );
     }
 }

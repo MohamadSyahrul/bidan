@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HamilController;
+use App\Http\Controllers\BersalinController;
 use App\Http\Controllers\PasienKBController;
 use App\Http\Controllers\DatapasienController;
 use App\Http\Controllers\PasienBayiController;
@@ -35,8 +37,7 @@ Route::resource('data-pasien', DatapasienController::class)->middleware(['auth']
 Route::resource('pasien-sakit', PasienSakitController::class)->middleware(['auth']);
 Route::resource('pasien-bayi', PasienBayiController::class)->middleware(['auth']);
 Route::resource('pasien-kb', PasienKBController::class)->middleware(['auth']);
-
-
-
+Route::resource('pasien-bersalin', BersalinController::class)->middleware(['auth']);
+Route::resource('pasien-hamil', HamilController::class)->middleware(['auth']);
 
 require __DIR__.'/auth.php';

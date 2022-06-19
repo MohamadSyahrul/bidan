@@ -63,7 +63,8 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{ Request::is('pasien-sakit') ? 'active' : '' }}" href="{{route('pasien-sakit.index')}}">
+            <a class="nav-link {{ Request::is('pasien-sakit') ? 'active' : '' }}"
+                href="{{route('pasien-sakit.index')}}">
                 <div
                     class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                     <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -92,20 +93,27 @@
             <a class="nav-link {{ Request::is('pasien-kb') ? 'active' : '' }}" href="{{route('pasien-kb.index')}}">
                 <div
                     class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                    <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>customer-support</title>
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                          <g transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                            <g transform="translate(1716.000000, 291.000000)">
-                              <g transform="translate(1.000000, 0.000000)">
-                                <path class="color-background opacity-6" d="M45,0 L26,0 C25.447,0 25,0.447 25,1 L25,20 C25,20.379 25.214,20.725 25.553,20.895 C25.694,20.965 25.848,21 26,21 C26.212,21 26.424,20.933 26.6,20.8 L34.333,15 L45,15 C45.553,15 46,14.553 46,14 L46,1 C46,0.447 45.553,0 45,0 Z"></path>
-                                <path class="color-background" d="M22.883,32.86 C20.761,32.012 17.324,31 13,31 C8.676,31 5.239,32.012 3.116,32.86 C1.224,33.619 0,35.438 0,37.494 L0,41 C0,41.553 0.447,42 1,42 L25,42 C25.553,42 26,41.553 26,41 L26,37.494 C26,35.438 24.776,33.619 22.883,32.86 Z"></path>
-                                <path class="color-background" d="M13,28 C17.432,28 21,22.529 21,18 C21,13.589 17.411,10 13,10 C8.589,10 5,13.589 5,18 C5,22.529 8.568,28 13,28 Z"></path>
-                              </g>
+                            <g transform="translate(-1717.000000, -291.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                <g transform="translate(1716.000000, 291.000000)">
+                                    <g transform="translate(1.000000, 0.000000)">
+                                        <path class="color-background opacity-6"
+                                            d="M45,0 L26,0 C25.447,0 25,0.447 25,1 L25,20 C25,20.379 25.214,20.725 25.553,20.895 C25.694,20.965 25.848,21 26,21 C26.212,21 26.424,20.933 26.6,20.8 L34.333,15 L45,15 C45.553,15 46,14.553 46,14 L46,1 C46,0.447 45.553,0 45,0 Z">
+                                        </path>
+                                        <path class="color-background"
+                                            d="M22.883,32.86 C20.761,32.012 17.324,31 13,31 C8.676,31 5.239,32.012 3.116,32.86 C1.224,33.619 0,35.438 0,37.494 L0,41 C0,41.553 0.447,42 1,42 L25,42 C25.553,42 26,41.553 26,41 L26,37.494 C26,35.438 24.776,33.619 22.883,32.86 Z">
+                                        </path>
+                                        <path class="color-background"
+                                            d="M13,28 C17.432,28 21,22.529 21,18 C21,13.589 17.411,10 13,10 C8.589,10 5,13.589 5,18 C5,22.529 8.568,28 13,28 Z">
+                                        </path>
+                                    </g>
+                                </g>
                             </g>
-                          </g>
                         </g>
-                      </svg>
+                    </svg>
                 </div>
                 <span class="nav-link-text ms-1">Pasien KB</span>
             </a>
@@ -138,6 +146,101 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link {{ Request::is('pasien-hamil') ? 'active' : '' }}" href="{{route('pasien-hamil.index')}}">
+                <div
+                    class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <svg width="612px" height="612px" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M240 64c0 35.35-28.65 64-64 64s-64-28.65-64-64 28.65-64 64-64 64 28.65 64 64zm-11.29 201.23c10.56-10.89 28.13-13.03 39.98-2.92 13.46 11.48 14.16 32.1 2.1 44.55l-41.46 42.82a6.728 6.728 0 0 1-9.71 0l-41.47-42.82c-12.05-12.44-11.33-33.07 2.13-44.55 11.74-10.01 29.2-8.18 39.98 2.92l4.22 4.35 4.23-4.35zm-160.82-99.2L3.92 265.85c-7.24 11.37-4.17 26.64 6.86 34.11 11.03 7.46 25.85 4.3 33.09-7.07 18-28.08 35.99-56.17 53.98-84.25 5.72-8.93 11.58-13.04 17.81-13.7 1.93 12.19 3.78 24.35 5.12 36.77v23.71c-9.06 39.36-17.48 79.89-27.39 118.93-2.07 8.05-3.75 14.56 3.26 21.4 3.72 3.62 7.76 4.33 12.83 4.33L128 400v80c0 18.04 14.06 32 32 32h32c18.4-.08 32-13.68 32-32v-80h48c10.51 0 17.48-5.37 17.48-16.25v-16c22.1-16.37 32-36.75 32-64C321.48 247.61 288 224 256 208c-8.7-4.35-26.68-18.98-32-32-7.55-18.48-5.86-32-27.43-32h-75.79c-18.3 0-42.57 5.82-52.89 22.03z" />
+                    </svg>
+
+                </div>
+                <span class="nav-link-text ms-1">Pasien Hamil</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ Request::is('pasien-bersalin') ? 'active' : '' }}"
+                href="{{route('pasien-bersalin.index')}}">
+                <div
+                    class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+                        style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                        <g>
+                            <g>
+                                <path d="M400.211,184.297l-48.776-19.884c-6.027,6.013-13.815,9.802-22.232,10.85c-12.146,1.511-42.795,5.327-53.936,6.714
+			c3.93,6.6,10.691,11.216,18.76,12.19c1.132,0.252-4.78-0.913,29.841,5.849l3.989,38.247c0.897,8.609,8.601,14.885,17.242,13.986
+			c8.625-0.899,14.886-8.619,13.986-17.242l-3.656-35.054l32.925,13.423c8.031,3.275,17.192-0.584,20.465-8.611
+			C412.095,196.732,408.24,187.57,400.211,184.297z" />
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <circle cx="343.472" cy="34.851" r="31.1" />
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <path d="M394.62,107.822l-16.189-5.476l11.741-2.939c8.411-2.106,13.524-10.631,11.419-19.041
+			c-2.106-8.412-10.634-13.519-19.041-11.419l-49.305,12.34c-2.707-2.347-5.951-4.159-9.622-5.21
+			c-13.461-3.856-27.486,3.938-31.337,17.394l-2.791,9.755c10.015-1.244,20.069-2.497,30.272-3.767
+			c11.636-1.449,22.694,2.504,30.674,9.892c5.743,5.316,9.881,12.412,11.493,20.562l22.625,7.652
+			c8.229,2.781,17.128-1.64,19.902-9.842C407.24,119.511,402.833,110.599,394.62,107.822z" />
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <path d="M343.416,134.848c-1.388-10.455-10.991-17.805-21.443-16.418l-74.14,9.84l-56.065-20.052l44.672,2.805
+			c-4.868-6.776-12.792-11.085-21.57-11.085c-16.335,0-27.825,0-45.955,0c-12.711,0-23.594,8.969-26.061,21.437l-40.621,205.232
+			c-1.387,7.008,4.01,13.501,11.081,13.501c6.482,0,14.898,0,24.513,0V487.6c0,13.476,10.924,24.4,24.4,24.4
+			c13.476,0,24.4-10.923,24.4-24.4V340.108c3.509,0,7.027,0,10.536,0V487.6c0,13.476,10.924,24.4,24.4,24.4
+			c13.476,0,24.4-10.923,24.4-24.4V340.108c9.617,0,18.033,0,24.513,0c7.11,0,12.466-6.504,11.081-13.501l-28.09-141.917
+			l-11.968,1.425c-6.53,0.777-13.099-1.091-18.242-5.191l-47.522-37.879l63.596,22.745c2.759,0.987,5.82,1.363,8.943,0.949
+			l78.726-10.447C337.452,154.903,344.802,145.303,343.416,134.848z" />
+                            </g>
+                        </g>
+                        <g>
+                            <g>
+                                <circle cx="191.893" cy="42.141" r="42.141" />
+                            </g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                    </svg>
+
+                </div>
+                <span class="nav-link-text ms-1">Pasien Bersalin</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link  " href="#">
                 <div
                     class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -165,26 +268,4 @@
             </a>
         </li>
     </ul>
-</div>
-<div class="sidenav-footer mx-3 ">
-    <div class="card card-background shadow-none card-background-mask-secondary" id="sidenavCard">
-        <div class="full-background"
-            style="background-image: url('{{asset('assets/img/curved-images/white-curved.jpeg')}}"></div>
-        <div class="card-body text-start p-3 w-100">
-            <div
-                class="icon icon-shape icon-sm bg-white shadow text-center mb-3 d-flex align-items-center justify-content-center border-radius-md">
-                <i class="ni ni-diamond text-dark text-gradient text-lg top-0" aria-hidden="true"
-                    id="sidenavCardIcon"></i>
-            </div>
-            <div class="docs-info">
-                <h6 class="text-white up mb-0">Need help?</h6>
-                <p class="text-xs font-weight-bold">Please check our docs</p>
-                <a href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard" target="_blank"
-                    class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
-            </div>
-        </div>
-    </div>
-    <a class="btn bg-gradient-primary mt-4 w-100"
-        href="https://www.creative-tim.com/product/soft-ui-dashboard-pro?ref=sidebarfree" type="button">Upgrade to
-        pro</a>
 </div>

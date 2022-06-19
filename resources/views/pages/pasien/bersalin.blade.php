@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-Pasien Bayi
+Pasien Bersalin
 @endsection
 {{-- @push('plugin-style')
     <link id="pagestyle" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
@@ -14,7 +14,7 @@ Pasien Bayi
                 <button type="button" class="btn bg-gradient-info float-end" data-bs-toggle="modal"
                     data-bs-target="#exampleModalMessage">
                     Tambah</button>
-                <h6 class="float-start">Data Pasien Bayi</h6>
+                <h6 class="float-start">Data Pasien Bersalin</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
@@ -26,9 +26,7 @@ Pasien Bayi
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                     Alamat</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                    Keluhan</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Berat Badan</th>
+                                    Suami</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                     Tanggal Lahir</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
@@ -37,7 +35,7 @@ Pasien Bayi
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($psnbayi as $item)
+                            @foreach ($psnbersalin as $item)
                             <tr>
                                 <td>
                                     <div class="d-flex px-2">
@@ -50,13 +48,10 @@ Pasien Bayi
                                     <p class="text-sm font-weight-bold mb-0">{{$item->dataPasien->alamat ?? ''}}</p>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->keluhan}}</span>
+                                    <span class="text-xs font-weight-bold">{{$item->suami}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->berat_badan}}</span>
-                                </td>
-                                <td>
-                                    <span class="text-xs font-weight-bold">{{$item->dataPasien->tgl_lahir ?? ''}}</span>
+                                    <span class="text-xs font-weight-bold">{{$item->tgl_lahir}}</span>
                                 </td>
                                 <td>
                                     <span class="text-xs font-weight-bold">{{$item->tgl_periksa}}</span>
@@ -78,26 +73,30 @@ Pasien Bayi
                                             role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h6 class="modal-title" id="modal-title-notification">Hapus Data Pasien Bayi</h6>
+                                                    <h6 class="modal-title" id="modal-title-notification">Hapus Data
+                                                        Pasien Bersalin</h6>
                                                     <button type="button" class="btn-close text-dark"
                                                         data-bs-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">×</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="{{route('pasien-bayi.destroy', $item->id)}}" method="POST">
+                                                    <form action="{{route('pasien-bersalin.destroy', $item->id)}}"
+                                                        method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <div class="py-3 text-center">
                                                             <i class="ni ni-bell-55 ni-3x"></i>
-                                                            <h4 class="text-gradient text-danger mt-4">Apakah Kamu Yakin ?
+                                                            <h4 class="text-gradient text-danger mt-4">Apakah Kamu Yakin
+                                                                ?
                                                             </h4>
                                                             <p>Apakah Anda benar-benar ingin menghapus data
                                                                 ini?</p>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="submit" class="btn btn-danger">Hapus</button>
-                                                            <button type="button" class="btn btn-white text-secondary ml-auto"
+                                                            <button type="button"
+                                                                class="btn btn-white text-secondary ml-auto"
                                                                 data-bs-dismiss="modal">Batal</button>
                                                         </div>
                                                     </form>
@@ -129,27 +128,25 @@ Pasien Bayi
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('pasien-bayi.store')}}" method="POST">
+                <form action="{{route('pasien-bersalin.store')}}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="id_pasienbayi" class="col-form-label">Nama Pasien:</label>
-                        <select class="form-control" id="id_pasienbayi" name="id_pasienbayi">
+                        <label for="id_pasienbersalin" class="col-form-label">Nama Pasien:</label>
+                        <select class="form-control" id="id_pasienbersalin" name="id_pasienbersalin">
                             <option>Pilih...</option>
                             @foreach ($nmapasien as $item)
-                                <option value="{{$item->id}}">{{$item->nama}}</option>
+                            <option value="{{$item->id}}">{{$item->nama}}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label for="keluhan" class="col-form-label">Keluhan:</label>
-                        <input type="text" class="form-control" name="keluhan"
-                            id="keluhan">
+                        <input type="text" class="form-control" name="keluhan" id="keluhan">
                     </div>
                     <div class="form-group">
                         <label for="berat_badan" class="col-form-label">Berat Badan:</label>
-                        <input type="text" class="form-control" name="berat_badan"
-                            id="berat_badan">
+                        <input type="text" class="form-control" name="berat_badan" id="berat_badan">
                     </div>
                     <div class="form-group">
                         <label for="tgl_periksa" class="col-form-label">Tgl periksa:</label>
@@ -167,7 +164,7 @@ Pasien Bayi
 </div>
 
 {{-- modal edit --}}
-@foreach ($psnbayi as $item)
+@foreach ($psnbersalin as $item)
 <div class="modal fade" id="edit-data{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="edit-data"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -179,7 +176,7 @@ Pasien Bayi
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('pasien-bayi.update',$item->id)}}" method="POST">
+                <form action="{{route('pasien-bersalin.update',$item->id)}}" method="POST">
                     @method('PUT')
                     @csrf
                     <div class="form-group">
@@ -187,23 +184,25 @@ Pasien Bayi
                         <select class="form-control" id="idpasien" name="id_pasienbayi">
                             <option>Pilih...</option>
                             @foreach ($nmapasien as $item)
-                                <option value="{{$item->id}}">{{$item->nama}}</option>
+                            <option value="{{$item->id}}">{{$item->nama}}</option>
                             @endforeach
                         </select>
 
-                    <div class="form-group">
-                        <label for="keluhan" class="col-form-label">Keluhan:</label>
-                        <textarea class="form-control" id="keluhan" name="keluhan">{{ $item->keluhan }}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="bb" class="col-form-label">Berat badan:</label>
-                        <textarea class="form-control" id="bb" name="berat_badan">{{ $item->berat_badan }}</textarea>
-                    </div>
+                        <div class="form-group">
+                            <label for="keluhan" class="col-form-label">Keluhan:</label>
+                            <textarea class="form-control" id="keluhan" name="keluhan">{{ $item->keluhan }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="bb" class="col-form-label">Berat badan:</label>
+                            <textarea class="form-control" id="bb"
+                                name="berat_badan">{{ $item->berat_badan }}</textarea>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="tgl-periksa" class="col-form-label">Tanggal Periksa:</label>
-                        <input type="date" class="form-control" name="tgl_periksa" value="{{ $item->tgl_periksa }}" id="tgl-periksa">
-                    </div>
+                        <div class="form-group">
+                            <label for="tgl-periksa" class="col-form-label">Tanggal Periksa:</label>
+                            <input type="date" class="form-control" name="tgl_periksa" value="{{ $item->tgl_periksa }}"
+                                id="tgl-periksa">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>

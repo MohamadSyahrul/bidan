@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-Pasien Bayi
+Pasien Hamil
 @endsection
 {{-- @push('plugin-style')
     <link id="pagestyle" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
@@ -14,7 +14,7 @@ Pasien Bayi
                 <button type="button" class="btn bg-gradient-info float-end" data-bs-toggle="modal"
                     data-bs-target="#exampleModalMessage">
                     Tambah</button>
-                <h6 class="float-start">Data Pasien Bayi</h6>
+                <h6 class="float-start">Data Pasien Hamil</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
@@ -37,7 +37,7 @@ Pasien Bayi
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($psnbayi as $item)
+                            @foreach ($psnhamil as $item)
                             <tr>
                                 <td>
                                     <div class="d-flex px-2">
@@ -85,7 +85,7 @@ Pasien Bayi
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="{{route('pasien-bayi.destroy', $item->id)}}" method="POST">
+                                                    <form action="{{route('pasien-hamil.destroy', $item->id)}}" method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <div class="py-3 text-center">
@@ -129,7 +129,7 @@ Pasien Bayi
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('pasien-bayi.store')}}" method="POST">
+                <form action="{{route('pasien-hamil.store')}}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="id_pasienbayi" class="col-form-label">Nama Pasien:</label>
@@ -167,7 +167,7 @@ Pasien Bayi
 </div>
 
 {{-- modal edit --}}
-@foreach ($psnbayi as $item)
+@foreach ($psnhamil as $item)
 <div class="modal fade" id="edit-data{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="edit-data"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
