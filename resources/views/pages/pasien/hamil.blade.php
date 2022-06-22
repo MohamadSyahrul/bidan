@@ -26,15 +26,13 @@ Pasien Hamil
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama
                                 </th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Alamat</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                    Keluhan</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                    Berat Badan</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                    Tanggal Lahir</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Suami</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Vitamin</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Periksa</th>
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
@@ -44,20 +42,17 @@ Pasien Hamil
                             <tr>
                                 <td>
                                     <p class="text-sm text-uppercase font-weight-bold mb-0">
-                                        {{$item->dataPasien->nama ?? ''}}</p>
+                                        {{$item->dtpasien->nama ?? ''}}</p>
 
                                 </td>
                                 <td>
-                                    <p class="text-sm font-weight-bold mb-0">{{$item->dataPasien->alamat ?? ''}}</p>
+                                    <p class="text-sm font-weight-bold mb-0">{{$item->dtpasien->alamat ?? ''}}</p>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->keluhan}}</span>
+                                    <span class="text-xs font-weight-bold">{{$item->suami}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->berat_badan}}</span>
-                                </td>
-                                <td>
-                                    <span class="text-xs font-weight-bold">{{$item->dataPasien->tgl_lahir ?? ''}}</span>
+                                    <span class="text-xs font-weight-bold">{{$item->vitamin}}</span>
                                 </td>
                                 <td>
                                     <span class="text-xs font-weight-bold">{{$item->tgl_periksa}}</span>
@@ -137,8 +132,8 @@ Pasien Hamil
                 <form action="{{route('pasien-hamil.store')}}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="id_pasienbayi" class="col-form-label">Nama Pasien:</label>
-                        <select class="form-control" id="id_pasienbayi" name="id_pasienbayi">
+                        <label for="id_pasienhamil" class="col-form-label">Nama Pasien:</label>
+                        <select class="form-control" id="id_pasienhamil" name="id_pasienhamil">
                             <option>Pilih...</option>
                             @foreach ($nmapasien as $item)
                             <option value="{{$item->id}}">{{$item->nama}}</option>
@@ -147,12 +142,12 @@ Pasien Hamil
                     </div>
 
                     <div class="form-group">
-                        <label for="keluhan" class="col-form-label">Keluhan:</label>
-                        <input type="text" class="form-control" name="keluhan" id="keluhan">
+                        <label for="suami" class="col-form-label">Nama Suami:</label>
+                        <input type="text" class="form-control" name="suami" id="suami">
                     </div>
                     <div class="form-group">
-                        <label for="berat_badan" class="col-form-label">Berat Badan:</label>
-                        <input type="text" class="form-control" name="berat_badan" id="berat_badan">
+                        <label for="vitamin" class="col-form-label">Vitamin:</label>
+                        <input type="text" class="form-control" name="vitamin" id="vitamin">
                     </div>
                     <div class="form-group">
                         <label for="tgl_periksa" class="col-form-label">Tgl periksa:</label>
@@ -182,12 +177,12 @@ Pasien Hamil
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('pasien-bayi.update',$item->id)}}" method="POST">
+                <form action="{{route('pasien-hamil.update',$item->id)}}" method="POST">
                     @method('PUT')
                     @csrf
                     <div class="form-group">
                         <label for="idpasien" class="col-form-label">Nama Pasien:</label>
-                        <select class="form-control" id="idpasien" name="id_pasienbayi">
+                        <select class="form-control" id="idpasien" name="id_pasienhamil">
                             <option>Pilih...</option>
                             @foreach ($nmapasien as $item)
                             <option value="{{$item->id}}">{{$item->nama}}</option>
@@ -195,13 +190,13 @@ Pasien Hamil
                         </select>
 
                         <div class="form-group">
-                            <label for="keluhan" class="col-form-label">Keluhan:</label>
-                            <textarea class="form-control" id="keluhan" name="keluhan">{{ $item->keluhan }}</textarea>
+                            <label for="suami" class="col-form-label">Nama Suami:</label>
+                            <textarea class="form-control" id="suami" name="suami">{{ $item->suami }}</textarea>
                         </div>
                         <div class="form-group">
-                            <label for="bb" class="col-form-label">Berat badan:</label>
+                            <label for="bb" class="col-form-label">Vitamin:</label>
                             <textarea class="form-control" id="bb"
-                                name="berat_badan">{{ $item->berat_badan }}</textarea>
+                                name="vitamin">{{ $item->vitamin }}</textarea>
                         </div>
 
                         <div class="form-group">

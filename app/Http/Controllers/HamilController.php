@@ -38,7 +38,9 @@ class HamilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dp = $request->all();
+        Hamil::create($dp);
+        return redirect()->route('pasien-hamil.index');
     }
 
     /**
@@ -70,9 +72,12 @@ class HamilController extends Controller
      * @param  \App\Models\Hamil  $hamil
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hamil $hamil)
+    public function update(Request $request, $id)
     {
-        //
+        $ps = $request->all();
+        $item = Hamil::findOrFail($id);
+        $item->update($ps);
+        return redirect()->route('pasien-hamil.index');
     }
 
     /**
@@ -81,8 +86,10 @@ class HamilController extends Controller
      * @param  \App\Models\Hamil  $hamil
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hamil $hamil)
+    public function destroy($id)
     {
-        //
+        $item = Hamil::findOrFail($id);
+        $item->delete();
+        return redirect()->route('pasien-hamil.index');
     }
 }

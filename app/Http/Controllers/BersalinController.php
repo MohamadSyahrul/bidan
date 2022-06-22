@@ -38,16 +38,18 @@ class BersalinController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dp = $request->all();
+        Bersalin::create($dp);
+        return redirect()->route('pasien-bersalin.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Bersalin  $bersalin
+     * @param  \App\Models\Bersalin  $Bersalin
      * @return \Illuminate\Http\Response
      */
-    public function show(Bersalin $bersalin)
+    public function show(Bersalin $Bersalin)
     {
         //
     }
@@ -55,10 +57,10 @@ class BersalinController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Bersalin  $bersalin
+     * @param  \App\Models\Bersalin  $Bersalin
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bersalin $bersalin)
+    public function edit(Bersalin $Bersalin)
     {
         //
     }
@@ -67,22 +69,27 @@ class BersalinController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Bersalin  $bersalin
+     * @param  \App\Models\Bersalin  $Bersalin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bersalin $bersalin)
+    public function update(Request $request, $id)
     {
-        //
+        $ps = $request->all();
+        $item = Bersalin::findOrFail($id);
+        $item->update($ps);
+        return redirect()->route('pasien-bersalin.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Bersalin  $bersalin
+     * @param  \App\Models\Bersalin  $Bersalin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bersalin $bersalin)
+    public function destroy($id)
     {
-        //
+        $item = Bersalin::findOrFail($id);
+        $item->delete();
+        return redirect()->route('pasien-bersalin.index');
     }
 }
