@@ -46,16 +46,16 @@ Pasien Sakit
                                     <p class="text-sm text-uppercase font-weight-bold mb-0">{{$item->data_pasien->nama}}</p>
                                 </td>
                                 <td>
-                                    <p class="text-sm font-weight-bold mb-0">{{$item->data_pasien->alamat}}</p>
+                                    <p class="text-sm text-capitalize font-weight-bold mb-0">{{$item->data_pasien->alamat}}</p>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->keluhan}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->keluhan}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->data_pasien->tgl_lahir}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->data_pasien->tgl_lahir}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->tgl_periksa}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_periksa}}</span>
                                 </td>
                                 <td class="align-middle">
                                     <a href="javascript:;" class="text-secondary font-weight-bold text-xs"

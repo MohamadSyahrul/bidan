@@ -46,19 +46,19 @@ Pasien KB
                                     <p class="text-sm text-uppercase font-weight-bold mb-0">{{$item->dt_pasien->nama}}</p>
                                 </td>
                                 <td>
-                                    <p class="text-sm font-weight-bold mb-0">{{$item->dt_pasien->alamat}}</p>
+                                    <p class="text-sm text-capitalize font-weight-bold mb-0">{{$item->dt_pasien->alamat}}</p>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->nama_suami}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->nama_suami}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->suntik_kb}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->suntik_kb}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->tgl_kb}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_kb}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->tgl_kembali}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_kembali}}</span>
                                 </td>
                                 <td class="align-middle">
                                     <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
@@ -146,19 +146,19 @@ Pasien KB
 
                     <div class="form-group">
                         <label for="nama_suami" class="col-form-label">Nama Suami:</label>
-                        <input type="text" class="form-control" name="nama_suami" id="nama_suami">
+                        <input type="text" class="form-control" name="nama_suami" id="nama_suami" required>
                     </div>
                     <div class="form-group">
                         <label for="suntik_kb" class="col-form-label">Suntik KB:</label>
-                        <input type="text" class="form-control" name="suntik_kb" placeholder="1 bulan" id="suntik_kb">
+                        <input type="text" class="form-control" name="suntik_kb" placeholder="1 bulan" id="suntik_kb" required>
                     </div>
                     <div class="form-group">
                         <label for="tgl_kb" class="col-form-label">Tgl KB:</label>
-                        <input type="date" class="form-control" id="tgl_kb" name="tgl_kb">
+                        <input type="date" class="form-control" id="tgl_kb" name="tgl_kb" required>
                     </div>
                     <div class="form-group">
                         <label for="tgl_kembali" class="col-form-label">Tgl Kembali:</label>
-                        <input type="date" class="form-control" id="tgl_kembali" name="tgl_kembali">
+                        <input type="date" class="form-control" id="tgl_kembali" name="tgl_kembali" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
@@ -187,31 +187,32 @@ Pasien KB
                 <form action="{{route('pasien-kb.update',$item->id)}}" method="POST">
                     @method('PUT')
                     @csrf
-                    <div class="form-group">
-                        <label for="idpasien" class="col-form-label">Nama Pasien:</label>
-                        <select class="form-control" id="idpasien" name="id_pasienbayi">
-                            <option>Pilih...</option>
-                            @foreach ($nmapasien as $item)
-                            <option value="{{$item->id}}">{{$item->nama}}</option>
-                            @endforeach
-                        </select>
-
                         <div class="form-group">
-                            <label for="keluhan" class="col-form-label">Keluhan:</label>
-                            <textarea class="form-control" id="keluhan" name="keluhan">{{ $item->keluhan }}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="bb" class="col-form-label">Berat badan:</label>
-                            <textarea class="form-control" id="bb"
-                                name="berat_badan">{{ $item->berat_badan }}</textarea>
+                            <label for="id_pasien" class="col-form-label">Nama Pasien:</label>
+                            <select class="form-control" id="id_pasien" name="id_pasien">
+                                <option>Pilih...</option>
+                                @foreach ($nmapasien as $item)
+                                <option value="{{$item->id}}">{{$item->nama}}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="tgl-periksa" class="col-form-label">Tanggal Periksa:</label>
-                            <input type="date" class="form-control" name="tgl_periksa" value="{{ $item->tgl_periksa }}"
-                                id="tgl-periksa">
+                            <label for="nama_suami" class="col-form-label">Nama Suami:</label>
+                            <input type="text" class="form-control" name="nama_suami" id="nama_suami" required placeholder="{{ $item->nama_suami }}">
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="suntik_kb" class="col-form-label">Suntik KB:</label>
+                            <input type="text" class="form-control" name="suntik_kb" placeholder="1 bulan" id="suntik_kb" required placeholder="{{$item->suntik_kb}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="tgl_kb" class="col-form-label">Tgl KB:</label>
+                            <input type="date" class="form-control" id="tgl_kb" name="tgl_kb" required placeholder="{{$item->tgl_kb}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="tgl_kembali" class="col-form-label">Tgl Kembali:</label>
+                            <input type="date" class="form-control" id="tgl_kembali" name="tgl_kembali" required placeholder="{{$item->tgl_kembali}}">
+                        </div>
                     <div class="modal-footer">
                         <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn bg-gradient-primary">Simpan</button>
