@@ -39,11 +39,11 @@ Data Pasien
                             @foreach ($psn as $item)
                             <tr>
                                 <td>
-                                    <p class="text-sm text-uppercase font-weight-bold mb-0">{{$item->nama}}</p>
+                                    <span class="text-sm text-uppercase font-weight-bold">{{$item->nama}}</span>
 
                                 </td>
                                 <td>
-                                    <p class="text-sm text-capitalize font-weight-bold mb-0">{{$item->alamat}}</p>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->alamat}}</span>
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->jenis_kelamin}}</span>

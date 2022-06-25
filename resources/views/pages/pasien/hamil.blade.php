@@ -41,18 +41,18 @@ Pasien Hamil
                             @foreach ($psnhamil as $item)
                             <tr>
                                 <td>
-                                    <p class="text-sm text-uppercase font-weight-bold mb-0">
-                                        {{$item->dtpasien->nama ?? ''}}</p>
+                                    <span class="text-sm text-uppercase font-weight-bold">
+                                        {{$item->dtpasien->nama ?? ''}}</span>
 
                                 </td>
                                 <td>
-                                    <p class="text-sm font-weight-bold mb-0">{{$item->dtpasien->alamat ?? ''}}</p>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->dtpasien->alamat ?? ''}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->suami}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->suami}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->vitamin}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->vitamin}}</span>
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_periksa}}</span>

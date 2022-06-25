@@ -43,10 +43,10 @@ Pasien KB
                             @foreach ($pskb as $item)
                             <tr>
                                 <td>
-                                    <p class="text-sm text-uppercase font-weight-bold mb-0">{{$item->dt_pasien->nama}}</p>
+                                    <span class="text-sm text-uppercase font-weight-bold">{{$item->dt_pasien->nama}}</span>
                                 </td>
                                 <td>
-                                    <p class="text-sm text-capitalize font-weight-bold mb-0">{{$item->dt_pasien->alamat}}</p>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->dt_pasien->alamat}}</span>
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->nama_suami}}</span>

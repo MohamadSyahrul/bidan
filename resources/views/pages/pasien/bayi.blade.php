@@ -43,12 +43,12 @@ Pasien Bayi
                             @foreach ($psnbayi as $item)
                             <tr>
                                 <td>
-                                    <p class="text-sm text-uppercase font-weight-bold mb-0">
-                                        {{$item->dataPasien->nama ?? ''}}</p>
+                                    <span class="text-sm text-uppercase font-weight-bold">
+                                        {{$item->dataPasien->nama ?? ''}}</span>
 
                                 </td>
                                 <td>
-                                    <p class="text-sm text-capitalize font-weight-bold mb-0">{{$item->dataPasien->alamat ?? ''}}</p>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->dataPasien->alamat ?? ''}}</span>
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->keluhan}}</span>

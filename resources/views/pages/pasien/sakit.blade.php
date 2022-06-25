@@ -14,7 +14,7 @@ Pasien Sakit
                 <button type="button" class="btn bg-gradient-info float-end" data-bs-toggle="modal"
                     data-bs-target="#exampleModalMessage">
                     Tambah</button>
-                    
+
                     <h6 class="float-start">Data Pasien Sakit</h6><br>
                     <div class="col-2 mt-4">
                             <input class="form-control" id="myInput" type="search" placeholder="Search..." aria-label="Search">
@@ -43,10 +43,10 @@ Pasien Sakit
                             @foreach ($psnsakit as $item)
                             <tr>
                                 <td>
-                                    <p class="text-sm text-uppercase font-weight-bold mb-0">{{$item->data_pasien->nama}}</p>
+                                    <span class="text-sm text-uppercase font-weight-bold">{{$item->data_pasien->nama}}</span>
                                 </td>
                                 <td>
-                                    <p class="text-sm text-capitalize font-weight-bold mb-0">{{$item->data_pasien->alamat}}</p>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->data_pasien->alamat}}</span>
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->keluhan}}</span>
