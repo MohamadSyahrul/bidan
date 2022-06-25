@@ -26,13 +26,13 @@ Pasien Bersalin
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama
                                 </th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Alamat</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                    Nama Suami</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Suami</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Lahir</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Periksa</th>
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
@@ -46,16 +46,16 @@ Pasien Bersalin
 
                                 </td>
                                 <td>
-                                    <p class="text-sm font-weight-bold mb-0">{{$item->dataPasien->alamat ?? ''}}</p>
+                                    <p class="text-sm text-capitalize font-weight-bold mb-0">{{$item->dataPasien->alamat ?? ''}}</p>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->suami}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->suami}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->tgl_lahir}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_lahir}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-xs font-weight-bold">{{$item->tgl_periksa}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_periksa}}</span>
                                 </td>
                                 <td class="align-middle">
                                     <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
