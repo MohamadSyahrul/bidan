@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Datapasien;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HamilController;
 use App\Http\Controllers\LaporanController;
@@ -31,7 +32,11 @@ Route::get('tambah-pasien', function () {
 
 
 Route::get('/dashboard', function () {
-    return view('pages.dashboard');
+        $dtpasien = Datapasien::count();
+        $daynow = Datapasien::whereDate('created_at', date('Y-m-d'))->get()->count();
+        $data = Datapasien::whereMonth('created_at', date('m'))
+                ->get()->count();
+    return view('pages.dashboard', compact('dtpasien','daynow', 'data'));
 })->middleware(['auth'])->name('dashboard');
 
 Route::resource('data-pasien', DatapasienController::class)->middleware(['auth']);
