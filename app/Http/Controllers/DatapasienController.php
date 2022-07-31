@@ -38,7 +38,7 @@ class DatapasienController extends Controller
     {
         $dp = $request->all();
         Datapasien::create($dp);
-        return redirect()->route('data-pasien.index');
+        return redirect()->route('data-pasien.index')->with('success', 'Data berhasil disimpan !');
     }
 
     /**
@@ -75,7 +75,7 @@ class DatapasienController extends Controller
         $ps = $request->all();
         $item = Datapasien::findOrFail($id);
         $item->update($ps);
-        return redirect()->route('data-pasien.index');
+        return redirect()->route('data-pasien.index')->with('success', 'Data berhasil diperbarui !');
     }
 
     /**
@@ -88,7 +88,7 @@ class DatapasienController extends Controller
     {
         $item = Datapasien::findOrFail($id);
         $item->delete();
-        return redirect()->route('data-pasien.index');
+        return redirect()->route('data-pasien.index')->with('success', 'Data berhasil dihapus !');
 
     }
 }

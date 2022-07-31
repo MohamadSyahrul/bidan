@@ -37,6 +37,13 @@
               <div class="card card-plain mt-8">
                 <div class="card-header pb-0 text-left bg-transparent">
                   <h3 class="font-weight-bolder text-info text-gradient">Selamat Datang</h3>
+                  {{-- @error('error')
+                    <div class="alert alert-danger">
+                        <strong>{{ $errors }}</strong>
+                    </div>
+                  @enderror --}}
+                  <x-auth-session-status class="mb-4" :status="session('status')" />
+                  <x-auth-validation-errors class="mb-4" :errors="$errors" />
                 </div>
                 <div class="card-body">
                   <form method="POST" action="{{ route('login') }}">

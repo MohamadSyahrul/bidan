@@ -16,7 +16,7 @@ class PasienSakitController extends Controller
     public function index()
     {
         $psnsakit = PasienSakit::with(['data_pasien'])->get();
-        // dd($psnsakit);
+        // dd($psnsakit->keluhan);
         $nmapasien = Datapasien::all();
         return view('pages.pasien.sakit', compact('psnsakit','nmapasien'));
     }

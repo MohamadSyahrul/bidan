@@ -40,7 +40,7 @@ class PasienKBController extends Controller
     {
         $dp = $request->all();
         PasienKB::create($dp);
-        return redirect()->route('pasien-kb.index');
+        return redirect()->route('pasien-kb.index')->with('success', 'Data berhasil disimpan !');
     }
 
     /**
@@ -77,7 +77,7 @@ class PasienKBController extends Controller
         $ps = $request->all();
         $item = PasienKB::findOrFail($id);
         $item->update($ps);
-        return redirect()->route('pasien-kb.index');
+        return redirect()->route('pasien-kb.index')->with('success', 'Data berhasil diperbarui !');
     }
 
     /**
@@ -90,7 +90,7 @@ class PasienKBController extends Controller
     {
         $item = PasienKB::findOrFail($id);
         $item->delete();
-        return redirect()->route('pasien-kb.index');
+        return redirect()->route('pasien-kb.index')->with('success', 'Data berhasil dihapus !');
 
     }
 }

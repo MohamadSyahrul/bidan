@@ -11,6 +11,12 @@ Pasien Bayi
     <div class="col-12">
         <div class="card mb-4">
             <div class="card-header pb-0">
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> {{ $message }}
+                    </div>   
+                @endif
+
                 <button type="button" class="btn bg-gradient-info float-end" data-bs-toggle="modal"
                     data-bs-target="#exampleModalMessage">
                     Tambah</button>

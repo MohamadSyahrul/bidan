@@ -13,7 +13,15 @@ Data Pasien
             <div class="card-header pb-0">
                 <button type="button" class="btn bg-gradient-info float-end" data-bs-toggle="modal"
                     data-bs-target="#exampleModalMessage">
-                    Tambah</button>
+                    Tambah
+                </button>
+
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> {{ $message }}
+                    </div>   
+                @endif
+
                 <h6 class="float-start">Data Pasien</h6>
                 <div class="col-2 mt-4">
                     <input class="form-control" id="myInput" type="search" placeholder="Search..." aria-label="Search">

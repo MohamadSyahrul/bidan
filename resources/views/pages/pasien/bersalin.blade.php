@@ -11,6 +11,11 @@ Pasien Bersalin
     <div class="col-12">
         <div class="card mb-4">
             <div class="card-header pb-0">
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <strong>Success!</strong> {{ $message }}
+                    </div>   
+                @endif
                 <button type="button" class="btn bg-gradient-info float-end" data-bs-toggle="modal"
                     data-bs-target="#exampleModalMessage">
                     Tambah</button>
@@ -41,12 +46,12 @@ Pasien Bersalin
                             @foreach ($psnbersalin as $item)
                             <tr>
                                 <td>
-                                    <p class="text-sm text-uppercase font-weight-bold mb-0">
-                                        {{$item->dataPasien->nama ?? ''}}</p>
+                                    <span class="text-sm text-uppercase font-weight-bold">
+                                        {{$item->dataPasien->nama ?? ''}}</span>
 
                                 </td>
                                 <td>
-                                    <p class="text-sm text-capitalize font-weight-bold mb-0">{{$item->dataPasien->alamat ?? ''}}</p>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->dataPasien->alamat ?? ''}}</span>
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->suami}}</span>
@@ -142,12 +147,12 @@ Pasien Bersalin
                     </div>
 
                     <div class="form-group">
-                        <label for="keluhan" class="col-form-label">Keluhan:</label>
-                        <input type="text" class="form-control" name="keluhan" id="keluhan">
+                        <label for="suami" class="col-form-label">Nama Suami:</label>
+                        <input type="text" class="form-control" name="suami" id="suami">
                     </div>
                     <div class="form-group">
-                        <label for="berat_badan" class="col-form-label">Berat Badan:</label>
-                        <input type="text" class="form-control" name="berat_badan" id="berat_badan">
+                        <label for="tgl_lahir" class="col-form-label">Tgl Lahir:</label>
+                        <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
                     </div>
                     <div class="form-group">
                         <label for="tgl_periksa" class="col-form-label">Tgl periksa:</label>
@@ -182,7 +187,7 @@ Pasien Bersalin
                     @csrf
                     <div class="form-group">
                         <label for="idpasien" class="col-form-label">Nama Pasien:</label>
-                        <select class="form-control" id="idpasien" name="id_pasienbayi">
+                        <select class="form-control" id="idpasien" name="id_pasienbersalin">
                             <option>Pilih...</option>
                             @foreach ($nmapasien as $item)
                             <option value="{{$item->id}}">{{$item->nama}}</option>
@@ -190,13 +195,13 @@ Pasien Bersalin
                         </select>
 
                         <div class="form-group">
-                            <label for="keluhan" class="col-form-label">Keluhan:</label>
-                            <textarea class="form-control" id="keluhan" name="keluhan">{{ $item->keluhan }}</textarea>
+                            <label for="suami" class="col-form-label">Nama Suami:</label>
+                            <textarea class="form-control" id="suami" name="suami">{{ $item->suami }}</textarea>
                         </div>
                         <div class="form-group">
-                            <label for="bb" class="col-form-label">Berat badan:</label>
-                            <textarea class="form-control" id="bb"
-                                name="berat_badan">{{ $item->berat_badan }}</textarea>
+                            <label for="tgl-lahir" class="col-form-label">Tanggal lahir:</label>
+                            <input type="date" class="form-control" name="tgl_lahir" value="{{ $item->tgl_lahir }}"
+                                id="tgl-lahir">
                         </div>
 
                         <div class="form-group">

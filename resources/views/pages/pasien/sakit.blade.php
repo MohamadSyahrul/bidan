@@ -161,8 +161,8 @@ Pasien Sakit
 </div>
 
 {{-- modal edit --}}
-@foreach ($psnsakit as $item)
-<div class="modal fade" id="edit-data{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="edit-data"
+@foreach ($psnsakit as $row)
+<div class="modal fade" id="edit-data{{ $row->id }}" tabindex="-1" role="dialog" aria-labelledby="edit-data"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -173,26 +173,26 @@ Pasien Sakit
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('pasien-sakit.update',$item->id)}}" method="POST">
+                <form action="{{route('pasien-sakit.update',$row->id)}}" method="POST">
                     @method('PUT')
                     @csrf
                     <div class="form-group">
                         <label for="idpasien" class="col-form-label">Nama Pasien:</label>
                         <select class="form-control" id="idpasien" name="id_pasiensakit">
                             <option>Pilih...</option>
-                            @foreach ($nmapasien as $item)
-                            <option value="{{$item->id}}">{{$item->nama}}</option>
+                            @foreach ($nmapasien as $row)
+                            <option value="{{$row->id}}">{{$row->nama}}</option>
                             @endforeach
                         </select>
-
+                        
                         <div class="form-group">
-                            <label for="keluhan" class="col-form-label">Keluhan:</label>
-                            <textarea class="form-control" id="keluhan" name="keluhan">{{ $item->keluhan }}</textarea>
+                            <label for="keluhan-pasien" class="col-form-label">Keluhan:</label>
+                            <input type="text" class="form-control" name="keluhan" value="{{$row->keluhan}}" id="keluhan-pasien">
                         </div>
 
                         <div class="form-group">
                             <label for="tgl-periksa" class="col-form-label">Tanggal Periksa:</label>
-                            <input type="date" class="form-control" name="tgl_periksa" value="{{ $item->tgl_periksa }}"
+                            <input type="date" class="form-control" name="tgl_periksa" value="{{ $row->tgl_periksa }}"
                                 id="tgl-periksa">
                         </div>
                     </div>
