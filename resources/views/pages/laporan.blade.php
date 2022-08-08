@@ -8,8 +8,6 @@ Laporan
     <div class="col-12">
         <div class="card mb-4">
             <div class="card-header pb-0">
-                <button type="button" class="btn bg-gradient-info float-end">
-                    Statistik</button>
                 <h6 class="float-start">Laporan</h6>
                 <div class="col-2 mt-4">
                     <input class="form-control" id="myInput" type="search" placeholder="Search..." aria-label="Search">

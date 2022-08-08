@@ -30,21 +30,33 @@
   <script src="{{asset('assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
   <script src="{{asset('assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
   <script src="{{asset('assets/js/plugins/chartjs.min.js')}}"></script>
+  <?php 
+    $kb = App\Models\PasienKB::count();
+    $sakit = App\Models\PasienSakit::count();
+    $bayi = App\Models\PasienBayi::count();
+    $hamil = App\Models\Hamil::count();
+    $bersalin = App\Models\Bersalin::count();
+  ?>
   <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
-
+    let kb = <?= $kb ?>;
+    let sakit = <?= $sakit ?>;
+    let bayi = <?= $bayi ?>;
+    let hamil = <?= $hamil ?>;
+    let bersalin = <?= $bersalin ?>;
+    // console.log(kb);
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: ["pasien sakit", "pasien kb", "pasien bayi", "pasien hamil", "pasien bersalin"],
         datasets: [{
-          label: "Sales",
+          label: "total",
           tension: 0.4,
           borderWidth: 0,
           borderRadius: 4,
           borderSkipped: false,
           backgroundColor: "#fff",
-          data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+          data: [kb, sakit,bayi,hamil,bersalin],
           maxBarThickness: 6
         }, ],
       },
