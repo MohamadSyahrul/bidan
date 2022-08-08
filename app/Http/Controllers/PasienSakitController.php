@@ -41,7 +41,7 @@ class PasienSakitController extends Controller
     {
         $dp = $request->all();
         PasienSakit::create($dp);
-        return redirect()->route('pasien-sakit.index');
+        return redirect()->route('pasien-sakit.index')->with('success', 'Data berhasil disimpan !');
     }
 
     /**
@@ -78,7 +78,7 @@ class PasienSakitController extends Controller
         $ps = $request->all();
         $item = PasienSakit::findOrFail($id);
         $item->update($ps);
-        return redirect()->route('pasien-sakit.index');
+        return redirect()->route('pasien-sakit.index')->with('success', 'Data berhasil diperbarui !');
     }
 
     /**
@@ -91,7 +91,7 @@ class PasienSakitController extends Controller
     {
         $item = PasienSakit::findOrFail($id);
         $item->delete();
-        return redirect()->route('pasien-sakit.index');
+        return redirect()->route('pasien-sakit.index')->with('success', 'Data berhasil dihapus !');
 
     }
 }
