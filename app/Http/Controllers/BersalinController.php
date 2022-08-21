@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Bersalin;
 use App\Models\Datapasien;
 use Illuminate\Http\Request;
@@ -27,7 +28,9 @@ class BersalinController extends Controller
      */
     public function create()
     {
-        //
+        $nmapasien = Datapasien::all();
+        return view('pages.create.bersalin', compact('nmapasien'));
+        
     }
 
     /**
@@ -38,7 +41,9 @@ class BersalinController extends Controller
      */
     public function store(Request $request)
     {
+        $tanggal = Carbon::now();
         $dp = $request->all();
+        $dp['tgl_periksa'] = $tanggal->toDateString();
         Bersalin::create($dp);
         return redirect()->route('pasien-bersalin.index')->with('success', 'Data berhasil disimpan !');
     }
@@ -51,7 +56,7 @@ class BersalinController extends Controller
      */
     public function show(Bersalin $Bersalin)
     {
-        //
+      //
     }
 
     /**
@@ -60,9 +65,11 @@ class BersalinController extends Controller
      * @param  \App\Models\Bersalin  $Bersalin
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bersalin $Bersalin)
+    public function edit($id)
     {
-        //
+        $nmapasien = Datapasien::all();
+        $row = Bersalin::with('dataPasien')->findOrfail($id);
+        return view('pages.edit.bersalin', compact('nmapasien', 'row'));
     }
 
     /**
@@ -74,9 +81,12 @@ class BersalinController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $tanggal = Carbon::now();
+        
         $ps = $request->all();
-        $item = Bersalin::findOrFail($id);
-        $item->update($ps);
+        $ps['tgl_periksa'] = $tanggal->toDateString();
+        $row = Bersalin::findOrFail($id);
+        $row->update($ps);
         return redirect()->route('pasien-bersalin.index')->with('success', 'Data berhasil diperbarui !');
     }
 

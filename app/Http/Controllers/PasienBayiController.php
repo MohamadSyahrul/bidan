@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Datapasien;
 use App\Models\PasienBayi;
 use Illuminate\Http\Request;
@@ -28,7 +29,8 @@ class PasienBayiController extends Controller
      */
     public function create()
     {
-        //
+        $nmapasien = Datapasien::all();
+        return view('pages.create.bayi', compact('nmapasien'));
     }
 
     /**
@@ -39,7 +41,10 @@ class PasienBayiController extends Controller
      */
     public function store(Request $request)
     {
+        $tanggal = Carbon::now();
+
         $dp = $request->all();
+        $dp['tgl_periksa'] = $tanggal->toDateString();
         PasienBayi::create($dp);
         return redirect()->route('pasien-bayi.index')->with('success', 'Data berhasil disimpan !');
     }
@@ -63,7 +68,10 @@ class PasienBayiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $nmapasien = Datapasien::all();
+        $row = PasienBayi::with('dataPasien')->findOrfail($id);
+        // dd($row);
+        return view('pages.edit.bayi', compact('row', 'nmapasien'));
     }
 
     /**
@@ -75,7 +83,10 @@ class PasienBayiController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $tanggal = Carbon::now();
+
         $ps = $request->all();
+        $dp['tgl_periksa'] = $tanggal->toDateString();
         $item = PasienBayi::findOrFail($id);
         $item->update($ps);
         return redirect()->route('pasien-bayi.index')->with('success', 'Data berhasil diperbarui !');
