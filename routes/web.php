@@ -25,9 +25,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('tambah-pasien', function () {
-    return view('pages.dtpasien.create');
-});
+// Route::get('tambah-pasien', function () {
+//     return view('pages.dtpasien.create');
+// });
 
 
 
