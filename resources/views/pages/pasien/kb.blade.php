@@ -16,9 +16,8 @@ Pasien KB
                         <strong>Success!</strong> {{ $message }}
                     </div>   
                 @endif
-                <button type="button" class="btn bg-gradient-info float-end" data-bs-toggle="modal"
-                    data-bs-target="#exampleModalMessage">
-                    Tambah</button>
+                <a href="{{route('pasien-kb.create')}}" class="btn bg-gradient-info float-end">
+                    Tambah</a>
                 <h6 class="float-start">Data Pasien KB</h6>
                 <div class="col-2 mt-4">
                     <input class="form-control" id="myInput" type="search" placeholder="Search..." aria-label="Search">
@@ -66,8 +65,7 @@ Pasien KB
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_kembali}}</span>
                                 </td>
                                 <td class="align-middle">
-                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                        data-bs-toggle="modal" data-bs-target="#edit-data{{$item->id}}">
+                                    <a href="{{route('pasien-kb.edit', $item->id)}}" class="text-secondary font-weight-bold text-xs">
                                         Edit
                                     </a>
 
@@ -125,110 +123,6 @@ Pasien KB
     </div>
 </div>
 
-{{-- modal tambah --}}
-<div class="modal fade" id="exampleModalMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalMessageTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
-                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{route('pasien-kb.store')}}" method="POST">
-                    @csrf
-                    <div class="form-group">
-                        <label for="id_pasien" class="col-form-label">Nama Pasien:</label>
-                        <select class="form-control" id="id_pasien" name="id_pasien">
-                            <option>Pilih...</option>
-                            @foreach ($nmapasien as $item)
-                            <option value="{{$item->id}}">{{$item->nama}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nama_suami" class="col-form-label">Nama Suami:</label>
-                        <input type="text" class="form-control" name="nama_suami" id="nama_suami" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="suntik_kb" class="col-form-label">Suntik KB:</label>
-                        <input type="text" class="form-control" name="suntik_kb" placeholder="1 bulan" id="suntik_kb" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="tgl_kb" class="col-form-label">Tgl KB:</label>
-                        <input type="date" class="form-control" id="tgl_kb" name="tgl_kb" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="tgl_kembali" class="col-form-label">Tgl Kembali:</label>
-                        <input type="date" class="form-control" id="tgl_kembali" name="tgl_kembali" required>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn bg-gradient-primary">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-
-{{-- modal edit --}}
-@foreach ($pskb as $item)
-<div class="modal fade" id="edit-data{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="edit-data"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
-                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{route('pasien-kb.update',$item->id)}}" method="POST">
-                    @method('PUT')
-                    @csrf
-                        <div class="form-group">
-                            <label for="id_pasien" class="col-form-label">Nama Pasien:</label>
-                            <select class="form-control" id="id_pasien" name="id_pasien">
-                                <option>Pilih...</option>
-                                @foreach ($nmapasien as $item)
-                                <option value="{{$item->id}}">{{$item->nama}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="nama_suami" class="col-form-label">Nama Suami:</label>
-                            <input type="text" class="form-control" name="nama_suami" id="nama_suami" required placeholder="{{ $item->nama_suami }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="suntik_kb" class="col-form-label">Suntik KB:</label>
-                            <input type="text" class="form-control" name="suntik_kb" placeholder="1 bulan" id="suntik_kb" required placeholder="{{$item->suntik_kb}}">
-                        </div>
-                        <div class="form-group">
-                            <label for="tgl_kb" class="col-form-label">Tgl KB:</label>
-                            <input type="date" class="form-control" id="tgl_kb" name="tgl_kb" required placeholder="{{$item->tgl_kb}}">
-                        </div>
-                        <div class="form-group">
-                            <label for="tgl_kembali" class="col-form-label">Tgl Kembali:</label>
-                            <input type="date" class="form-control" id="tgl_kembali" name="tgl_kembali" required placeholder="{{$item->tgl_kembali}}">
-                        </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn bg-gradient-primary">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-@endforeach
 
 @endsection
 

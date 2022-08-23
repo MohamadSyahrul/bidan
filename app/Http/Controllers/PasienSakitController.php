@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Datapasien;
 use App\Models\PasienSakit;
 use Illuminate\Http\Request;
@@ -28,7 +29,8 @@ class PasienSakitController extends Controller
      */
     public function create()
     {
-        //
+                $nmapasien = Datapasien::all();
+        return view('pages.create.sakit', compact('nmapasien'));
     }
 
     /**
@@ -39,7 +41,9 @@ class PasienSakitController extends Controller
      */
     public function store(Request $request)
     {
+                $tanggal = Carbon::now();
         $dp = $request->all();
+                $dp['tgl_periksa'] = $tanggal->toDateString();
         PasienSakit::create($dp);
         return redirect()->route('pasien-sakit.index')->with('success', 'Data berhasil disimpan !');
     }
@@ -63,7 +67,10 @@ class PasienSakitController extends Controller
      */
     public function edit($id)
     {
-        //
+        $nmapasien = Datapasien::all();
+        $item = PasienSakit::findOrfail($id);
+        // dd($item);
+        return view('pages.edit.sakit', compact('nmapasien', 'item'));
     }
 
     /**
@@ -75,7 +82,9 @@ class PasienSakitController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $tanggal = Carbon::now();
         $ps = $request->all();
+        $dp['tgl_periksa'] = $tanggal->toDateString();
         $item = PasienSakit::findOrFail($id);
         $item->update($ps);
         return redirect()->route('pasien-sakit.index')->with('success', 'Data berhasil diperbarui !');

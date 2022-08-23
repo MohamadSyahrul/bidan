@@ -16,9 +16,8 @@ Pasien Hamil
                         <strong>Success!</strong> {{ $message }}
                     </div>   
                 @endif
-                <button type="button" class="btn bg-gradient-info float-end" data-bs-toggle="modal"
-                    data-bs-target="#exampleModalMessage">
-                    Tambah</button>
+                <a href="{{route('pasien-hamil.create')}}" class="btn bg-gradient-info float-end">
+                    Tambah</a>
                 <h6 class="float-start">Data Pasien Hamil</h6>
                 <div class="col-2 mt-4">
                     <input class="form-control" id="myInput" type="search" placeholder="Search..." aria-label="Search">
@@ -63,8 +62,7 @@ Pasien Hamil
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_periksa}}</span>
                                 </td>
                                 <td class="align-middle">
-                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                        data-bs-toggle="modal" data-bs-target="#edit-data{{$item->id}}">
+                                    <a href="{{route('pasien-hamil.edit', $item->id)}}" class="text-secondary font-weight-bold text-xs">
                                         Edit
                                     </a>
 
@@ -121,106 +119,6 @@ Pasien Hamil
         </div>
     </div>
 </div>
-
-{{-- modal tambah --}}
-<div class="modal fade" id="exampleModalMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalMessageTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
-                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{route('pasien-hamil.store')}}" method="POST">
-                    @csrf
-                    <div class="form-group">
-                        <label for="id_pasienhamil" class="col-form-label">Nama Pasien:</label>
-                        <select class="form-control" id="id_pasienhamil" name="id_pasienhamil">
-                            <option>Pilih...</option>
-                            @foreach ($nmapasien as $item)
-                            <option value="{{$item->id}}">{{$item->nama}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="suami" class="col-form-label">Nama Suami:</label>
-                        <input type="text" class="form-control" name="suami" id="suami">
-                    </div>
-                    <div class="form-group">
-                        <label for="vitamin" class="col-form-label">Vitamin:</label>
-                        <input type="text" class="form-control" name="vitamin" id="vitamin">
-                    </div>
-                    <div class="form-group">
-                        <label for="tgl_periksa" class="col-form-label">Tgl periksa:</label>
-                        <input type="date" class="form-control" id="tgl_periksa" name="tgl_periksa">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn bg-gradient-primary">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-
-{{-- modal edit --}}
-@foreach ($psnhamil as $item)
-<div class="modal fade" id="edit-data{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="edit-data"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
-                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{route('pasien-hamil.update',$item->id)}}" method="POST">
-                    @method('PUT')
-                    @csrf
-                    <div class="form-group">
-                        <label for="idpasien" class="col-form-label">Nama Pasien:</label>
-                        <select class="form-control" id="idpasien" name="id_pasienhamil">
-                            <option>Pilih...</option>
-                            @foreach ($nmapasien as $item)
-                            <option value="{{$item->id}}">{{$item->nama}}</option>
-                            @endforeach
-                        </select>
-
-                        <div class="form-group">
-                            <label for="suami" class="col-form-label">Nama Suami:</label>
-                            <textarea class="form-control" id="suami" name="suami">{{ $item->suami }}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="bb" class="col-form-label">Vitamin:</label>
-                            <textarea class="form-control" id="bb"
-                                name="vitamin">{{ $item->vitamin }}</textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="tgl-periksa" class="col-form-label">Tanggal Periksa:</label>
-                            <input type="date" class="form-control" name="tgl_periksa" value="{{ $item->tgl_periksa }}"
-                                id="tgl-periksa">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn bg-gradient-primary">Simpan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-@endforeach
 
 @endsection
 

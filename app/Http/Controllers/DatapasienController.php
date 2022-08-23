@@ -37,11 +37,7 @@ class DatapasienController extends Controller
      */
     public function store(Request $request)
     {
-        $tanggal = Carbon::now();
-
         $dp = $request->all();
-        $dp['kode_pasien'] = GenerateNomorPasien($tanggal->toDateString(), $request->nama);
-        // dd($dp);
         Datapasien::create($dp);
         return redirect()->route('data-pasien.index')->with('success', 'Data berhasil disimpan !');
     }
@@ -78,9 +74,7 @@ class DatapasienController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tanggal = Carbon::now();
         $ps = $request->all();
-        $ps['kode_pasien'] = GenerateNomorPasien($tanggal->toDateString(), $request->nama);
         $item = Datapasien::findOrFail($id);
         $item->update($ps);
         return redirect()->route('data-pasien.index')->with('success', 'Data berhasil diperbarui !');

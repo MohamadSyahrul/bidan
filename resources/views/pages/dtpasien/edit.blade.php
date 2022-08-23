@@ -14,7 +14,7 @@ Edit Data Pasien
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="kode-pasien" class="col-form-label">Kode Pasien:</label>
-                                <input type="text" class="form-control" disabled name="kode_pasien" placeholder="Kode Pasien digenerate Otomatis" id="kode-pasien">
+                                <input type="text" class="form-control" name="kode_pasien" value="{{ $item->kode_pasien }}" id="kode-pasien">
                             </div>
                         </div>
                         <div class="col-md-6">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Hamil;
 use App\Models\Datapasien;
 use Illuminate\Http\Request;
@@ -27,7 +28,8 @@ class HamilController extends Controller
      */
     public function create()
     {
-        //
+        $nmapasien = Datapasien::all();
+        return view('pages.create.hamil', compact('nmapasien'));
     }
 
     /**
@@ -38,7 +40,9 @@ class HamilController extends Controller
      */
     public function store(Request $request)
     {
+        $tanggal = Carbon::now();
         $dp = $request->all();
+        $dp['tgl_periksa'] = $tanggal->toDateString();
         Hamil::create($dp);
         return redirect()->route('pasien-hamil.index')->with('success', 'Data berhasil disimpan !');
     }
@@ -60,9 +64,11 @@ class HamilController extends Controller
      * @param  \App\Models\Hamil  $hamil
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hamil $hamil)
+    public function edit($id)
     {
-        //
+        $row = Hamil::findOrfail($id);
+        $nmapasien = Datapasien::all();
+        return view('pages.edit.hamil', compact('nmapasien', 'row'));
     }
 
     /**
@@ -74,7 +80,9 @@ class HamilController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $tanggal = Carbon::now();
         $ps = $request->all();
+        $ps['tgl_periksa'] = $tanggal->toDateString();
         $item = Hamil::findOrFail($id);
         $item->update($ps);
         return redirect()->route('pasien-hamil.index')->with('success', 'Data berhasil diperbarui !');

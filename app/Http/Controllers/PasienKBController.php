@@ -27,7 +27,9 @@ class PasienKBController extends Controller
      */
     public function create()
     {
-        //
+        $nmapasien = Datapasien::all();
+        return view('pages.create.kb', compact('nmapasien'));
+        
     }
 
     /**
@@ -62,7 +64,9 @@ class PasienKBController extends Controller
      */
     public function edit($id)
     {
-        //
+        $nmapasien = Datapasien::all();
+        $row = PasienKB::findOrfail($id);
+        return view('pages.edit.kb', compact('nmapasien', 'row'));
     }
 
     /**
