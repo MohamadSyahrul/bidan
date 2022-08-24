@@ -38,7 +38,59 @@ class DatapasienController extends Controller
     public function store(Request $request)
     {
         $dp = $request->all();
-        Datapasien::create($dp);
+        $p = Datapasien::latest()->first();
+        
+        if($p){
+        if ($request->jenis_kelamin === 'P') {
+            Datapasien::create([
+                'nama' => $request->nama,
+                'kode' => $request->kode_pasien,
+                'alamat' => $request->alamat,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'tgl_lahir' =>$request->tgl_lahir,
+                'kode_pasien' => 'P.0' . $p->id += 1,
+                'status' => true,
+            ]);
+        }
+        if($request->jenis_kelamin === 'L'){
+            Datapasien::create([
+                'nama' => $request->nama,
+                'kode' => $request->kode_pasien,
+                'alamat' => $request->alamat,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'tgl_lahir' =>$request->tgl_lahir,
+                'kode_pasien' => 'L.0' . $p->id += 1,
+                'status' => true,
+                
+            ]);
+        }
+    }
+        if($p===null){
+            if ($request->jenis_kelamin === 'P') {
+                Datapasien::create([
+                    'nama' => $request->nama,
+                    'kode' => $request->kode_pasien,
+                    'alamat' => $request->alamat,
+                    'jenis_kelamin' => $request->jenis_kelamin,
+                    'tgl_lahir' =>$request->tgl_lahir,
+                    'kode_pasien' =>'P.0' . 1,
+                    'status' => true,
+                ]);
+            }
+            if($request->jenis_kelamin === 'L'){
+                Datapasien::create([
+                    'nama' => $request->nama,
+                    'kode' => $request->kode_pasien,
+                    'alamat' => $request->alamat,
+                    'jenis_kelamin' => $request->jenis_kelamin,
+                    'tgl_lahir' =>$request->tgl_lahir,
+                    'kode_pasien' =>'L.0' . 1,
+                    'status' => true,
+        
+                ]);
+    }
+}
+
         return redirect()->route('data-pasien.index')->with('success', 'Data berhasil disimpan !');
     }
 

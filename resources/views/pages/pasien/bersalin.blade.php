@@ -33,8 +33,8 @@ Pasien Bersalin
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Alamat</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Suami</th>
+                                {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Suami</th> --}}
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Lahir</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -53,9 +53,9 @@ Pasien Bersalin
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->dataPasien->alamat ?? ''}}</span>
                                 </td>
-                                <td>
+                                {{-- <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->suami}}</span>
-                                </td>
+                                </td> --}}
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_lahir}}</span>
                                 </td>

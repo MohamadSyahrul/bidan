@@ -11,29 +11,29 @@ Tambah Data Pasien Hamil
                     @csrf
                     <div class="row">
             
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="id_pasienhamil" class="col-form-label">Nama Pasien:</label>
-                                <select class="form-control" id="id_pasienhamil" name="id_pasienhamil">
-                                    <option>Pilih...</option>
-                                    @foreach ($nmapasien as $item)
-                                    <option value="{{$item->id}}">{{$item->nama}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                        <div class="col-6">
+                           
+                                <div class="form-group">
+                                    <label for="id_pasienhamil" class="col-form-label">Nama Pasien:</label>
+                                    <select class="form-control" id="id_pasienhamil" name="id_pasienhamil">
+                                        <option>Pilih...</option>
+                                        @foreach ($nmapasien as $item)
+                                        <option value="{{$item->id}}">{{$item->nama}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="vitamin" class="col-form-label">Vitamin:</label>
+                                    <input type="text" class="form-control" name="vitamin" id="vitamin">
+                                </div>
+                                
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="suami" class="col-form-label">Nama Suami:</label>
-                                <input type="text" class="form-control" name="suami" id="suami">
+                                <label for="keluhan" class="col-form-label">Keterangan</label>
+                                <input type="text" class="form-control" name="keterangan" id="keluhan">
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="vitamin" class="col-form-label">Vitamin:</label>
-                                <input type="text" class="form-control" name="vitamin" id="vitamin">
-                            </div>
-                        </div>
+                        
                     </div>
                     <div class="float-end">
                         <button type="button" class="btn bg-gradient-secondary">Batal</button>

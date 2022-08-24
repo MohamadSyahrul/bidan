@@ -8,11 +8,39 @@ Laporan
     <div class="col-12">
         <div class="card mb-4">
             <div class="card-header pb-0">
-                <h6 class="float-start">Laporan</h6>
-                <div class="col-2 mt-4">
+               
+                {{-- <div class="col-2 mt-4">
                     <input class="form-control" id="myInput" type="search" placeholder="Search..." aria-label="Search">
-                </div>
+                </div> --}}
+                <form action="{{route('rekap')}}" method="POST" >
+                    @csrf
+                    <div class="row g-3 ">
+                        <h6 class="float-start">REKAP PER</h6>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                {{-- <label for="suami" class="col-form-label">Dari Tanggal :</label> --}}
+                                <input type="date" class="form-control" name="dari" id="suami" value="{{ $dari }}" required>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                {{-- <label for="suami" class="col-form-label">Sampai Tanggal:</label> --}}
+                                    <input type="date" class="form-control" name="sampai" id="suami" value="{{ $sampai }}" required></div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                {{-- <label for="suami" class="col-form-label">Sampai Tanggal:</label> --}}
+                                <button type="submit" class="btn bg-gradient-primary">Submit</button>
+                            </div>
+                        </div>
+                        
+                </form>
+    
             </div>
+
+          
+
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
                     <table class="table align-items-center text-center justify-content-center mb-0">

@@ -9,6 +9,7 @@ use App\Http\Controllers\PasienKBController;
 use App\Http\Controllers\DatapasienController;
 use App\Http\Controllers\PasienBayiController;
 use App\Http\Controllers\PasienSakitController;
+use App\Http\Controllers\PeriksaHamilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,5 +46,7 @@ Route::resource('pasien-bayi', PasienBayiController::class)->middleware(['auth']
 Route::resource('pasien-kb', PasienKBController::class)->middleware(['auth']);
 Route::resource('pasien-bersalin', BersalinController::class)->middleware(['auth']);
 Route::resource('pasien-hamil', HamilController::class)->middleware(['auth']);
+Route::resource('periksa-pasien-hamil', PeriksaHamilController::class)->middleware(['auth']);
 Route::get('laporan', [LaporanController::class, 'index'])->middleware(['auth']);
+Route::post('laporan', [LaporanController::class, 'rekap'])->middleware(['auth'])->name('rekap');
 require __DIR__.'/auth.php';

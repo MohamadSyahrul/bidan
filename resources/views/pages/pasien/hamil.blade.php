@@ -32,8 +32,8 @@ Pasien Hamil
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Alamat</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Suami</th>
+                                {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Suami</th> --}}
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Vitamin</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -52,9 +52,9 @@ Pasien Hamil
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->dtpasien->alamat ?? ''}}</span>
                                 </td>
-                                <td>
+                                {{-- <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->suami}}</span>
-                                </td>
+                                </td> --}}
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->vitamin}}</span>
                                 </td>

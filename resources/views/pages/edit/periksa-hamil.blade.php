@@ -16,7 +16,7 @@ Edit Data Pasien Hamil
                             <div class="form-group">
                                 <label for="idpasien" class="col-form-label">Nama Pasien:</label>
                                 <select class="form-control" id="idpasien" name="id_pasienhamil">
-                                    <option>Pilih...</option>
+                                    <option value="{{$row->id_pasienhamil}}" selected>{{$row->dtpasien->nama}}</option>
                                     @foreach ($nmapasien as $item)
                                     <option value="{{$item->id}}">{{$item->nama}}</option>
                                     @endforeach
@@ -36,11 +36,42 @@ Edit Data Pasien Hamil
                                     name="vitamin">{{ $row->vitamin }}</textarea>
                             </div>
                         </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="idpasien" class="col-form-label">Golongan Darah</label>
+                                <select class="form-control" id="idpasien" name="golongan_darah">
+                                    <option value="{{$row->golongan_darah}}" selected>{{$row->golongan_darah}}</option>
+                                    <option value="AB" selected>AB</option>
+                                    <option value="B" selected>B</option>
+                                    <option value="A" selected>A</option>
+                                    <option value="O" selected>O</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="kode-pasien" class="col-form-label">Umur Kehamilan</label>
+                                <input type="text" class="form-control" name="umur_kehamilan" placeholder="Masukan Umur Kehamilan" id="kode-pasien">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="kode-pasien" class="col-form-label">Umur Pasien</label>
+                                <input type="text" class="form-control" name="umur_pasien" placeholder="Masukan Umur Pasien" id="kode-pasien">
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="bb" class="col-form-label">Keterangan</label>
+                                <label for="bb" class="col-form-label">Perkembangan Janin:</label>
                                 <textarea class="form-control" id="bb"
-                                    name="vitamin">{{ $row->keterangan }}</textarea>
+                                    name="perkembangan_janin">{{ $row->perkembangan_janin }}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="bb" class="col-form-label">Keterangan:</label>
+                                <textarea class="form-control" id="bb"
+                                    name="keterangan">{{ $row->keterangan }}</textarea>
                             </div>
                         </div>
                     </div>

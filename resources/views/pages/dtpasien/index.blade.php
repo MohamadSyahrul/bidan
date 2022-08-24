@@ -31,6 +31,8 @@ Data Pasien
                     <table class="table align-items-center text-center justify-content-center mb-0">
                         <thead>
                             <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">NIK
+                                </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kode Pasien
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama
@@ -41,12 +43,17 @@ Data Pasien
                                     Jenis Kelamin</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Lahir</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Status</th>
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
                         </thead>
                         <tbody id="myTable" class="text-center">
                             @foreach ($psn as $item)
                             <tr>
+                                <td>
+                                    <p class="text-sm text-uppercase font-weight-bold mb-0">{{$item->kode}}</p>
+                                </td>
                                 <td>
                                     <p class="text-sm text-uppercase font-weight-bold mb-0">{{$item->kode_pasien}}</p>
                                 </td>
@@ -62,6 +69,9 @@ Data Pasien
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_lahir}}</span>
+                                </td>
+                                <td>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{ $item->status ? 'Aktif' : 'Non Aktif' }}</span>
                                 </td>
                                 <td class="align-middle">
                                     <a href="{{route('data-pasien.edit', $item->id)}}" class="text-secondary font-weight-bold text-xs">

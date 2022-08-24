@@ -28,6 +28,12 @@ Tambah Data Pasien Sakit
                                 <input type="text" class="form-control" name="keluhan" id="keluhan">
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="keluhan" class="col-form-label">Keterangan</label>
+                                <input type="text" class="form-control" name="keterangan" id="keluhan">
+                            </div>
+                        </div>
                     </div>
                     <div class="float-end">
                         <button type="button" class="btn bg-gradient-secondary">Batal</button>

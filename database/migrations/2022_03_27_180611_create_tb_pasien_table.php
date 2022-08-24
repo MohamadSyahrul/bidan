@@ -15,10 +15,12 @@ class CreateTbPasienTable extends Migration
     {
         Schema::create('tb_pasien', function (Blueprint $table) {
             $table->id();
+            $table->string('kode');
             $table->string('nama');
             $table->string('alamat');
             $table->char('jenis_kelamin', 1);
             $table->date('tgl_lahir');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

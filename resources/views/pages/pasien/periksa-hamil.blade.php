@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-Pasien KB
+Pasien Hamil
 @endsection
 {{-- @push('plugin-style')
     <link id="pagestyle" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
@@ -16,9 +16,9 @@ Pasien KB
                         <strong>Success!</strong> {{ $message }}
                     </div>   
                 @endif
-                <a href="{{route('pasien-kb.create')}}" class="btn bg-gradient-info float-end">
-                    Tambah</a>
-                <h6 class="float-start">Data Pasien KB</h6>
+                {{-- <a href="{{route('periksa-pasien-hamil.create')}}" class="btn bg-gradient-info float-end">
+                    Tambah</a> --}}
+                <h6 class="float-start">Data Pasien Hamil</h6>
                 <div class="col-2 mt-4">
                     <input class="form-control" id="myInput" type="search" placeholder="Search..." aria-label="Search">
                 </div>
@@ -28,44 +28,28 @@ Pasien KB
                     <table class="table align-items-center text-center justify-content-center mb-0">
                         <thead>
                             <tr>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama
-                                </th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Alamat</th>
-                                {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Nama Suami</th> --}}
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Suntik KB</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Tanggal KB</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Tanggal Kembali</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Perkembangan Janin</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Vitamin</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Golongan Darah</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Umur Kehamilan</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Umur Pasien</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Keterangan</th>
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
                         </thead>
                         <tbody id="myTable" class="text-center">
-                            @foreach ($pskb as $item)
+                            @foreach ($psnhamil as $item)
                             <tr>
-                                <td>
-                                    <p class="text-sm text-uppercase font-weight-bold mb-0">{{$item->dt_pasien->nama}}</p>
-                                </td>
-                                <td>
-                                    <p class="text-sm text-capitalize font-weight-bold mb-0">{{$item->dt_pasien->alamat}}</p>
-                                </td>
-                                {{-- <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->nama_suami}}</span>
-                                </td> --}}
-                                <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->suntik_kb}}</span>
-                                </td>
-                                <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_kb}}</span>
-                                </td>
-                                <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_kembali}}</span>
-                                </td>
+                                <td> <span class="text-sm text-uppercase font-weight-bold">{{$item->dtpasien->nama ?? ''}}</span></td>
+                                <td><span class="text-sm text-capitalize font-weight-bold">{{$item->perkembangan_janin}}</span></td>
+                                <td><span class="text-sm text-capitalize font-weight-bold">{{$item->vitamin}}</span></td>
+                                <td><span class="text-sm text-capitalize font-weight-bold">{{$item->golongan_darah}}</span></td>
+                                <td><span class="text-sm text-capitalize font-weight-bold">{{$item->umur_kehamilan}}</span></td>
+                                <td><span class="text-sm text-capitalize font-weight-bold">{{$item->umur_pasien}}</span></td>
+                                <td><span class="text-sm text-capitalize font-weight-bold">{{$item->keterangan}}</span></td>
                                 <td class="align-middle">
-                                    <a href="{{route('pasien-kb.edit', $item->id)}}" class="text-secondary font-weight-bold text-xs">
+                                    <a href="{{route('periksa-pasien-hamil.edit', $item->id)}}" class="text-secondary font-weight-bold text-xs">
                                         Edit
                                     </a>
 
@@ -88,7 +72,7 @@ Pasien KB
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="{{route('pasien-bayi.destroy', $item->id)}}"
+                                                    <form action="{{route('pasien-hamil.destroy', $item->id)}}"
                                                         method="POST">
                                                         @method('delete')
                                                         @csrf
@@ -122,7 +106,6 @@ Pasien KB
         </div>
     </div>
 </div>
-
 
 @endsection
 

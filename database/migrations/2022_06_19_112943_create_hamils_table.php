@@ -15,8 +15,11 @@ class CreateHamilsTable extends Migration
     {
         Schema::create('hamils', function (Blueprint $table) {
             $table->id();
-            $table->string('suami');
             $table->string('vitamin');
+            $table->string('perkembangan_janin')->nullable();
+            $table->string('golongan_darah')->nullable();
+            $table->string('umur_kehamilan')->nullable();
+            $table->string('umur_pasien')->nullable();
             $table->date('tgl_periksa');
             $table->timestamps();
         });
