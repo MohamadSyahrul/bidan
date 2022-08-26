@@ -18,4 +18,8 @@ class Bersalin extends Model
     {
         return $this->belongsTo( Datapasien::class, 'id_pasienbersalin', 'id' );
     }
+    public function Hamil()
+    {
+        return $this->belongsTo( Hamil::class, 'id_pasienbersalin', 'id' );
+    }
 }

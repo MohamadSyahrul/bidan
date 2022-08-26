@@ -149,7 +149,7 @@ Pasien Bayi
                     <div class="form-group">
                         <label for="idpasien" class="col-form-label">Nama Pasien:</label>
                         <select class="form-control" id="idpasien" name="id_pasienbayi">
-                            <option>Pilih...</option>
+                            
                             @foreach ($nmapasien as $item)
                             <option value="{{$item->id}}">{{$item->nama}}</option>
                             @endforeach

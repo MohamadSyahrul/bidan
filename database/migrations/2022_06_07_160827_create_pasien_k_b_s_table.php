@@ -15,7 +15,6 @@ class CreatePasienKBSTable extends Migration
     {
         Schema::create('pasien_kb', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_suami');
             $table->string('suntik_kb');
             $table->string('no_tlp');
             $table->date('tgl_kb');

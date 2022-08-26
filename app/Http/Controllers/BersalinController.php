@@ -17,7 +17,8 @@ class BersalinController extends Controller
     public function index()
     {
         $nmapasien = Datapasien::all();
-        $psnbersalin = Bersalin::with(['DataPasien'])->get();
+        $psnbersalin = Bersalin::with(['DataPasien', 'Hamil'])->get();
+        // dd($psnbersalin);
         return view('pages.pasien.bersalin', compact('psnbersalin', 'nmapasien'));
     }
 

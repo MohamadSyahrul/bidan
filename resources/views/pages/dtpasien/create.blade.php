@@ -33,7 +33,7 @@ Tambah Data Pasien
                             <div class="form-group">
                                 <label for="jenis-kelamin" class="col-form-label">Jenis Kelamin:</label>
                                 <select class="form-control" id="jenis-kelamin" name="jenis_kelamin">
-                                    <option>Pilih...</option>
+                                    
                                     <option value="L">Laki-laki</option>
                                     <option value="P">Perempuan</option>
                                 </select>
@@ -50,6 +50,13 @@ Tambah Data Pasien
                             <div class="form-group">
                                 <label for="alamat-pasien" class="col-form-label">Alamat Pasien:</label>
                                 <textarea class="form-control" id="alamat-pasien" name="alamat"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="suami-pasien" class="col-form-label">Nama Suami:</label>
+                                <textarea class="form-control" id="suami-pasien" name="suami"></textarea>
                             </div>
                         </div>
 

@@ -51,6 +51,7 @@ class DatapasienController extends Controller
                 'tgl_lahir' =>$request->tgl_lahir,
                 'kode_pasien' => 'P.0' . $p->id += 1,
                 'status' => true,
+                'suami' => $request->suami,
             ]);
         }
         if($request->jenis_kelamin === 'L'){
@@ -63,6 +64,7 @@ class DatapasienController extends Controller
                 'tgl_lahir' =>$request->tgl_lahir,
                 'kode_pasien' => 'L.0' . $p->id += 1,
                 'status' => true,
+                'suami' => $request->suami,
                 
             ]);
         }
@@ -78,6 +80,7 @@ class DatapasienController extends Controller
                     'tgl_lahir' =>$request->tgl_lahir,
                     'kode_pasien' =>'P.0' . 1,
                     'status' => true,
+                    'suami' => $request->suami,
                 ]);
             }
             if($request->jenis_kelamin === 'L'){
@@ -90,6 +93,7 @@ class DatapasienController extends Controller
                     'tgl_lahir' =>$request->tgl_lahir,
                     'kode_pasien' =>'L.0' . 1,
                     'status' => true,
+                    'suami' => $request->suami,
         
                 ]);
     }
@@ -148,5 +152,16 @@ class DatapasienController extends Controller
         $item->delete();
         return redirect()->route('data-pasien.index')->with('success', 'Data berhasil dihapus !');
 
+    }
+    
+    public function ubahStatus($id)
+    {
+        Datapasien::where("id", $id)->update(['status' => 0]);
+        return back();
+    }
+    public function ubahStatusAktif($id)
+    {
+        Datapasien::where("id", $id)->update(['status' => 1]);
+        return back();
     }
 }

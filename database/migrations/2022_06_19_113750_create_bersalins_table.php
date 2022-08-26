@@ -15,7 +15,6 @@ class CreateBersalinsTable extends Migration
     {
         Schema::create('bersalins', function (Blueprint $table) {
             $table->id();
-            $table->string('suami');
             $table->date('tgl_lahir');
             $table->date('tgl_periksa');
             $table->timestamps();

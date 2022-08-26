@@ -32,9 +32,7 @@ Pasien Bersalin
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Alamat</th>
-                                {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Suami</th> --}}
+                                    Vitamin</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Lahir</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -51,11 +49,8 @@ Pasien Bersalin
 
                                 </td>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->dataPasien->alamat ?? ''}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->Hamil->vitamin}}</span>
                                 </td>
-                                {{-- <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->suami}}</span>
-                                </td> --}}
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_lahir}}</span>
                                 </td>
@@ -141,7 +136,7 @@ Pasien Bersalin
                     <div class="form-group">
                         <label for="idpasien" class="col-form-label">Nama Pasien:</label>
                         <select class="form-control" id="idpasien" name="id_pasienbersalin">
-                            <option>Pilih...</option>
+                            
                             @foreach ($nmapasien as $item)
                             <option value="{{$item->id}}">{{$item->nama}}</option>
                             @endforeach

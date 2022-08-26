@@ -37,30 +37,75 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{ Request::is('data-pasien') ? 'active' : '' }}" href="{{route('data-pasien.index')}}">
-                <div
-                    class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                    <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <title>office</title>
-                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                                <g transform="translate(1716.000000, 291.000000)">
-                                    <g id="office" transform="translate(153.000000, 2.000000)">
-                                        <path class="color-background opacity-6"
-                                            d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z">
-                                        </path>
-                                        <path class="color-background"
-                                            d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z">
-                                        </path>
+            <div class="dropdown">
+                <a class="nav-link" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
+                    aria-haspopup="true">
+                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <svg width="512px" height="512px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title>ionicons-v5-j</title><path d="M336,256c-20.56,0-40.44-9.18-56-25.84-15.13-16.25-24.37-37.92-26-61-1.74-24.62,5.77-47.26,21.14-63.76S312,80,336,80c23.83,0,45.38,9.06,60.7,25.52,15.47,16.62,23,39.22,21.26,63.63h0c-1.67,23.11-10.9,44.77-26,61C376.44,246.82,356.57,256,336,256Zm66-88h0Z"/><path d="M467.83,432H204.18a27.71,27.71,0,0,1-22-10.67,30.22,30.22,0,0,1-5.26-25.79c8.42-33.81,29.28-61.85,60.32-81.08C264.79,297.4,299.86,288,336,288c36.85,0,71,9,98.71,26.05,31.11,19.13,52,47.33,60.38,81.55a30.27,30.27,0,0,1-5.32,25.78A27.68,27.68,0,0,1,467.83,432Z"/><path d="M147,260c-35.19,0-66.13-32.72-69-72.93C76.58,166.47,83,147.42,96,133.45,108.86,119.62,127,112,147,112s38,7.66,50.93,21.57c13.1,14.08,19.5,33.09,18,53.52C213.06,227.29,182.13,260,147,260Z"/><path d="M212.66,291.45c-17.59-8.6-40.42-12.9-65.65-12.9-29.46,0-58.07,7.68-80.57,21.62C40.93,316,23.77,339.05,16.84,366.88a27.39,27.39,0,0,0,4.79,23.36A25.32,25.32,0,0,0,41.72,400h111a8,8,0,0,0,7.87-6.57c.11-.63.25-1.26.41-1.88,8.48-34.06,28.35-62.84,57.71-83.82a8,8,0,0,0-.63-13.39C216.51,293.42,214.71,292.45,212.66,291.45Z"/></svg>
+                    </div>
+                    <span class="nav-link-text ms-1">Data Pasien</span>
+                </a>
+                <ul class="dropdown" aria-labelledby="dropdownMenuButton" style="list-style-type:none;">
+                    <li>
+                        <a class="nav-link {{ Request::is('data-pasien') ? 'active' : '' }}"
+                            href="{{route('data-pasien.index')}}">
+                            <div
+                                class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <svg class="text-dark" width="16px" height="16px" viewBox="0 0 42 44" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>basket</title>
+                                <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none"
+                                    fill-rule="evenodd">
+                                    <g id="Rounded-Icons" transform="translate(-1869.000000, -741.000000)"
+                                        fill="#FFFFFF" fill-rule="nonzero">
+                                        <g id="Icons-with-opacity" transform="translate(1716.000000, 291.000000)">
+                                            <g id="basket" transform="translate(153.000000, 450.000000)">
+                                                <path class="color-background"
+                                                    d="M34.080375,13.125 L27.3748125,1.9490625 C27.1377583,1.53795093 26.6972449,1.28682264 26.222716,1.29218729 C25.748187,1.29772591 25.3135593,1.55890827 25.0860125,1.97535742 C24.8584658,2.39180657 24.8734447,2.89865282 25.1251875,3.3009375 L31.019625,13.125 L10.980375,13.125 L16.8748125,3.3009375 C17.1265553,2.89865282 17.1415342,2.39180657 16.9139875,1.97535742 C16.6864407,1.55890827 16.251813,1.29772591 15.777284,1.29218729 C15.3027551,1.28682264 14.8622417,1.53795093 14.6251875,1.9490625 L7.919625,13.125 L0,13.125 L0,18.375 L42,18.375 L42,13.125 L34.080375,13.125 Z"
+                                                    opacity="0.595377604"></path>
+                                                <path class="color-background"
+                                                    d="M3.9375,21 L3.9375,38.0625 C3.9375,40.9619949 6.28800506,43.3125 9.1875,43.3125 L32.8125,43.3125 C35.7119949,43.3125 38.0625,40.9619949 38.0625,38.0625 L38.0625,21 L3.9375,21 Z M14.4375,36.75 L11.8125,36.75 L11.8125,26.25 L14.4375,26.25 L14.4375,36.75 Z M22.3125,36.75 L19.6875,36.75 L19.6875,26.25 L22.3125,26.25 L22.3125,36.75 Z M30.1875,36.75 L27.5625,36.75 L27.5625,26.25 L30.1875,26.25 L30.1875,36.75 Z">
+                                                </path>
+                                            </g>
+                                        </g>
                                     </g>
                                 </g>
-                            </g>
-                        </g>
-                    </svg>
-                </div>
-                <span class="nav-link-text ms-1">Data Pasien</span>
-            </a>
+                                </svg>
+                            </div>
+                            <span class="nav-link-text ms-1">Data Pasien</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link {{ Request::is('pasien-bayi') ? 'active' : '' }}"
+                            href="{{route('pasien-bayi.index')}}">
+                            <div
+                                class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <svg class="text-dark" width="16px" height="16px" viewBox="0 0 42 44" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <title>basket</title>
+                                    <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none"
+                                        fill-rule="evenodd">
+                                        <g id="Rounded-Icons" transform="translate(-1869.000000, -741.000000)"
+                                            fill="#FFFFFF" fill-rule="nonzero">
+                                            <g id="Icons-with-opacity" transform="translate(1716.000000, 291.000000)">
+                                                <g id="basket" transform="translate(153.000000, 450.000000)">
+                                                    <path class="color-background"
+                                                        d="M34.080375,13.125 L27.3748125,1.9490625 C27.1377583,1.53795093 26.6972449,1.28682264 26.222716,1.29218729 C25.748187,1.29772591 25.3135593,1.55890827 25.0860125,1.97535742 C24.8584658,2.39180657 24.8734447,2.89865282 25.1251875,3.3009375 L31.019625,13.125 L10.980375,13.125 L16.8748125,3.3009375 C17.1265553,2.89865282 17.1415342,2.39180657 16.9139875,1.97535742 C16.6864407,1.55890827 16.251813,1.29772591 15.777284,1.29218729 C15.3027551,1.28682264 14.8622417,1.53795093 14.6251875,1.9490625 L7.919625,13.125 L0,13.125 L0,18.375 L42,18.375 L42,13.125 L34.080375,13.125 Z"
+                                                        opacity="0.595377604"></path>
+                                                    <path class="color-background"
+                                                        d="M3.9375,21 L3.9375,38.0625 C3.9375,40.9619949 6.28800506,43.3125 9.1875,43.3125 L32.8125,43.3125 C35.7119949,43.3125 38.0625,40.9619949 38.0625,38.0625 L38.0625,21 L3.9375,21 Z M14.4375,36.75 L11.8125,36.75 L11.8125,26.25 L14.4375,26.25 L14.4375,36.75 Z M22.3125,36.75 L19.6875,36.75 L19.6875,26.25 L22.3125,26.25 L22.3125,36.75 Z M30.1875,36.75 L27.5625,36.75 L27.5625,26.25 L30.1875,26.25 L30.1875,36.75 Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="nav-link-text ms-1">Pasien Bayi</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </li>
         <li class="nav-item">
             <a class="nav-link {{ Request::is('pasien-sakit') ? 'active' : '' }}"
@@ -118,59 +163,11 @@
                 <span class="nav-link-text ms-1">Pasien KB</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link {{ Request::is('pasien-bayi') ? 'active' : '' }}" href="{{route('pasien-bayi.index')}}">
-                <div
-                    class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                    <svg class="text-dark" width="16px" height="16px" viewBox="0 0 42 44" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <title>basket</title>
-                        <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <g id="Rounded-Icons" transform="translate(-1869.000000, -741.000000)" fill="#FFFFFF"
-                                fill-rule="nonzero">
-                                <g id="Icons-with-opacity" transform="translate(1716.000000, 291.000000)">
-                                    <g id="basket" transform="translate(153.000000, 450.000000)">
-                                        <path class="color-background"
-                                            d="M34.080375,13.125 L27.3748125,1.9490625 C27.1377583,1.53795093 26.6972449,1.28682264 26.222716,1.29218729 C25.748187,1.29772591 25.3135593,1.55890827 25.0860125,1.97535742 C24.8584658,2.39180657 24.8734447,2.89865282 25.1251875,3.3009375 L31.019625,13.125 L10.980375,13.125 L16.8748125,3.3009375 C17.1265553,2.89865282 17.1415342,2.39180657 16.9139875,1.97535742 C16.6864407,1.55890827 16.251813,1.29772591 15.777284,1.29218729 C15.3027551,1.28682264 14.8622417,1.53795093 14.6251875,1.9490625 L7.919625,13.125 L0,13.125 L0,18.375 L42,18.375 L42,13.125 L34.080375,13.125 Z"
-                                            opacity="0.595377604"></path>
-                                        <path class="color-background"
-                                            d="M3.9375,21 L3.9375,38.0625 C3.9375,40.9619949 6.28800506,43.3125 9.1875,43.3125 L32.8125,43.3125 C35.7119949,43.3125 38.0625,40.9619949 38.0625,38.0625 L38.0625,21 L3.9375,21 Z M14.4375,36.75 L11.8125,36.75 L11.8125,26.25 L14.4375,26.25 L14.4375,36.75 Z M22.3125,36.75 L19.6875,36.75 L19.6875,26.25 L22.3125,26.25 L22.3125,36.75 Z M30.1875,36.75 L27.5625,36.75 L27.5625,26.25 L30.1875,26.25 L30.1875,36.75 Z">
-                                        </path>
-                                    </g>
-                                </g>
-                            </g>
-                        </g>
-                    </svg>
-                </div>
-                <span class="nav-link-text ms-1">Pasien Bayi</span>
-            </a>
-        </li>
+
         <li class="nav-item">
             <div class="dropdown">
-                <a class="nav-link"  id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" >
-                    <div
-                                class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <svg width="612px" height="612px" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M240 64c0 35.35-28.65 64-64 64s-64-28.65-64-64 28.65-64 64-64 64 28.65 64 64zm-11.29 201.23c10.56-10.89 28.13-13.03 39.98-2.92 13.46 11.48 14.16 32.1 2.1 44.55l-41.46 42.82a6.728 6.728 0 0 1-9.71 0l-41.47-42.82c-12.05-12.44-11.33-33.07 2.13-44.55 11.74-10.01 29.2-8.18 39.98 2.92l4.22 4.35 4.23-4.35zm-160.82-99.2L3.92 265.85c-7.24 11.37-4.17 26.64 6.86 34.11 11.03 7.46 25.85 4.3 33.09-7.07 18-28.08 35.99-56.17 53.98-84.25 5.72-8.93 11.58-13.04 17.81-13.7 1.93 12.19 3.78 24.35 5.12 36.77v23.71c-9.06 39.36-17.48 79.89-27.39 118.93-2.07 8.05-3.75 14.56 3.26 21.4 3.72 3.62 7.76 4.33 12.83 4.33L128 400v80c0 18.04 14.06 32 32 32h32c18.4-.08 32-13.68 32-32v-80h48c10.51 0 17.48-5.37 17.48-16.25v-16c22.1-16.37 32-36.75 32-64C321.48 247.61 288 224 256 208c-8.7-4.35-26.68-18.98-32-32-7.55-18.48-5.86-32-27.43-32h-75.79c-18.3 0-42.57 5.82-52.89 22.03z" />
-                                </svg>
-                            </div>
-                  Pasien Hamil
-                </a>
-                <ul class="dropdown" aria-labelledby="dropdownMenuButton">
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::is('pasien-hamil') ? 'active' : '' }}" href="{{route('pasien-hamil.index')}}">
-                            <div
-                                class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <svg width="612px" height="612px" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M240 64c0 35.35-28.65 64-64 64s-64-28.65-64-64 28.65-64 64-64 64 28.65 64 64zm-11.29 201.23c10.56-10.89 28.13-13.03 39.98-2.92 13.46 11.48 14.16 32.1 2.1 44.55l-41.46 42.82a6.728 6.728 0 0 1-9.71 0l-41.47-42.82c-12.05-12.44-11.33-33.07 2.13-44.55 11.74-10.01 29.2-8.18 39.98 2.92l4.22 4.35 4.23-4.35zm-160.82-99.2L3.92 265.85c-7.24 11.37-4.17 26.64 6.86 34.11 11.03 7.46 25.85 4.3 33.09-7.07 18-28.08 35.99-56.17 53.98-84.25 5.72-8.93 11.58-13.04 17.81-13.7 1.93 12.19 3.78 24.35 5.12 36.77v23.71c-9.06 39.36-17.48 79.89-27.39 118.93-2.07 8.05-3.75 14.56 3.26 21.4 3.72 3.62 7.76 4.33 12.83 4.33L128 400v80c0 18.04 14.06 32 32 32h32c18.4-.08 32-13.68 32-32v-80h48c10.51 0 17.48-5.37 17.48-16.25v-16c22.1-16.37 32-36.75 32-64C321.48 247.61 288 224 256 208c-8.7-4.35-26.68-18.98-32-32-7.55-18.48-5.86-32-27.43-32h-75.79c-18.3 0-42.57 5.82-52.89 22.03z" />
-                                </svg>
-                            </div>
-                            <span class="nav-link-text ms-1">Registrasi</span>
-                        </a>
-                    </li>
-                  <li><a class="nav-link {{ Request::is('periksa-pasien-hamil') ? 'active' : '' }}" href="{{route('periksa-pasien-hamil.index')}}">
+                <a class="nav-link" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
+                    aria-haspopup="true">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="612px" height="612px" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
@@ -178,13 +175,40 @@
                                 d="M240 64c0 35.35-28.65 64-64 64s-64-28.65-64-64 28.65-64 64-64 64 28.65 64 64zm-11.29 201.23c10.56-10.89 28.13-13.03 39.98-2.92 13.46 11.48 14.16 32.1 2.1 44.55l-41.46 42.82a6.728 6.728 0 0 1-9.71 0l-41.47-42.82c-12.05-12.44-11.33-33.07 2.13-44.55 11.74-10.01 29.2-8.18 39.98 2.92l4.22 4.35 4.23-4.35zm-160.82-99.2L3.92 265.85c-7.24 11.37-4.17 26.64 6.86 34.11 11.03 7.46 25.85 4.3 33.09-7.07 18-28.08 35.99-56.17 53.98-84.25 5.72-8.93 11.58-13.04 17.81-13.7 1.93 12.19 3.78 24.35 5.12 36.77v23.71c-9.06 39.36-17.48 79.89-27.39 118.93-2.07 8.05-3.75 14.56 3.26 21.4 3.72 3.62 7.76 4.33 12.83 4.33L128 400v80c0 18.04 14.06 32 32 32h32c18.4-.08 32-13.68 32-32v-80h48c10.51 0 17.48-5.37 17.48-16.25v-16c22.1-16.37 32-36.75 32-64C321.48 247.61 288 224 256 208c-8.7-4.35-26.68-18.98-32-32-7.55-18.48-5.86-32-27.43-32h-75.79c-18.3 0-42.57 5.82-52.89 22.03z" />
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">Pasien Hamil</span>
-                </a></li>
+                    Pasien Hamil
+                </a>
+                <ul class="dropdown" aria-labelledby="dropdownMenuButton">
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('pasien-hamil') ? 'active' : '' }}"
+                            href="{{route('pasien-hamil.index')}}">
+                            <div
+                                class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <svg width="612px" height="612px" viewBox="-96 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M240 64c0 35.35-28.65 64-64 64s-64-28.65-64-64 28.65-64 64-64 64 28.65 64 64zm-11.29 201.23c10.56-10.89 28.13-13.03 39.98-2.92 13.46 11.48 14.16 32.1 2.1 44.55l-41.46 42.82a6.728 6.728 0 0 1-9.71 0l-41.47-42.82c-12.05-12.44-11.33-33.07 2.13-44.55 11.74-10.01 29.2-8.18 39.98 2.92l4.22 4.35 4.23-4.35zm-160.82-99.2L3.92 265.85c-7.24 11.37-4.17 26.64 6.86 34.11 11.03 7.46 25.85 4.3 33.09-7.07 18-28.08 35.99-56.17 53.98-84.25 5.72-8.93 11.58-13.04 17.81-13.7 1.93 12.19 3.78 24.35 5.12 36.77v23.71c-9.06 39.36-17.48 79.89-27.39 118.93-2.07 8.05-3.75 14.56 3.26 21.4 3.72 3.62 7.76 4.33 12.83 4.33L128 400v80c0 18.04 14.06 32 32 32h32c18.4-.08 32-13.68 32-32v-80h48c10.51 0 17.48-5.37 17.48-16.25v-16c22.1-16.37 32-36.75 32-64C321.48 247.61 288 224 256 208c-8.7-4.35-26.68-18.98-32-32-7.55-18.48-5.86-32-27.43-32h-75.79c-18.3 0-42.57 5.82-52.89 22.03z" />
+                                </svg>
+                            </div>
+                            <span class="nav-link-text ms-1">Registrasi</span>
+                        </a>
+                    </li>
+                    <li><a class="nav-link {{ Request::is('periksa-pasien-hamil') ? 'active' : '' }}"
+                            href="{{route('periksa-pasien-hamil.index')}}">
+                            <div
+                                class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <svg width="612px" height="612px" viewBox="-96 0 512 512"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M240 64c0 35.35-28.65 64-64 64s-64-28.65-64-64 28.65-64 64-64 64 28.65 64 64zm-11.29 201.23c10.56-10.89 28.13-13.03 39.98-2.92 13.46 11.48 14.16 32.1 2.1 44.55l-41.46 42.82a6.728 6.728 0 0 1-9.71 0l-41.47-42.82c-12.05-12.44-11.33-33.07 2.13-44.55 11.74-10.01 29.2-8.18 39.98 2.92l4.22 4.35 4.23-4.35zm-160.82-99.2L3.92 265.85c-7.24 11.37-4.17 26.64 6.86 34.11 11.03 7.46 25.85 4.3 33.09-7.07 18-28.08 35.99-56.17 53.98-84.25 5.72-8.93 11.58-13.04 17.81-13.7 1.93 12.19 3.78 24.35 5.12 36.77v23.71c-9.06 39.36-17.48 79.89-27.39 118.93-2.07 8.05-3.75 14.56 3.26 21.4 3.72 3.62 7.76 4.33 12.83 4.33L128 400v80c0 18.04 14.06 32 32 32h32c18.4-.08 32-13.68 32-32v-80h48c10.51 0 17.48-5.37 17.48-16.25v-16c22.1-16.37 32-36.75 32-64C321.48 247.61 288 224 256 208c-8.7-4.35-26.68-18.98-32-32-7.55-18.48-5.86-32-27.43-32h-75.79c-18.3 0-42.57 5.82-52.89 22.03z" />
+                                </svg>
+                            </div>
+                            <span class="nav-link-text ms-1">Pasien Hamil</span>
+                        </a></li>
                 </ul>
-              </div>
+            </div>
         </li>
-       
-      
+
+
         <li class="nav-item">
             <a class="nav-link {{ Request::is('pasien-bersalin') ? 'active' : '' }}"
                 href="{{route('pasien-bersalin.index')}}">

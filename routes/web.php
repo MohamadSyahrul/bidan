@@ -40,6 +40,10 @@ Route::get('/dashboard', function () {
 return view('pages.dashboard', compact('dtpasien','daynow', 'data'));
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('ubahstatus/{id}', [DatapasienController::class, 'ubahStatus'])->middleware(['auth']);
+Route::get('ubahstatusaktif/{id}', [DatapasienController::class, 'ubahStatusAktif'])->middleware(['auth']);
+
+
 Route::resource('data-pasien', DatapasienController::class)->middleware(['auth']);
 Route::resource('pasien-sakit', PasienSakitController::class)->middleware(['auth']);
 Route::resource('pasien-bayi', PasienBayiController::class)->middleware(['auth']);

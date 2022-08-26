@@ -71,7 +71,17 @@ Data Pasien
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_lahir}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{ $item->status ? 'Aktif' : 'Non Aktif' }}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">
+                                        @if ($item->status == 1)
+                                            <a href="ubahstatus/{{$item->id}}">
+                                                <span class="badge badge-pill badge-md bg-gradient-success">Aktif</span>
+                                            </a>
+                                        @else
+                                            <a href="ubahstatusaktif/{{$item->id}}">
+                                                <span class="badge badge-pill badge-md bg-gradient-warning">Non Aktif</span>
+                                            </a>
+                                        @endif
+                                    </span>
                                 </td>
                                 <td class="align-middle">
                                     <a href="{{route('data-pasien.edit', $item->id)}}" class="text-secondary font-weight-bold text-xs">
