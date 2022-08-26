@@ -52,7 +52,7 @@ Data Pasien
                             @foreach ($psn as $item)
                             <tr>
                                 <td>
-                                    <p class="text-sm text-uppercase font-weight-bold mb-0">{{$item->kode}}</p>
+                                    <p class="text-sm text-uppercase font-weight-bold mb-0">{{$item->nik}}</p>
                                 </td>
                                 <td>
                                     <p class="text-sm text-uppercase font-weight-bold mb-0">{{$item->kode_pasien}}</p>

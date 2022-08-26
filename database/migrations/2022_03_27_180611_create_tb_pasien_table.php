@@ -15,6 +15,7 @@ class CreateTbPasienTable extends Migration
     {
         Schema::create('tb_pasien', function (Blueprint $table) {
             $table->id();
+            $table->string('nik');
             $table->string('kode');
             $table->string('nama');
             $table->string('alamat');

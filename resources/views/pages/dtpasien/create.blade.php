@@ -18,6 +18,13 @@ Tambah Data Pasien
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label for="nik-pasien" class="col-form-label">NIK Pasien:</label>
+                                <input type="text" class="form-control" name="nik" placeholder="Masukan Nik Pasien" id="nik-pasien">
+                            </div>
+                        </div>
+                       
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label for="nama-pasien" class="col-form-label">Nama Pasien:</label>
                                 <input type="text" class="form-control" name="nama" placeholder="nama" id="nama-pasien">
                             </div>

@@ -44,7 +44,8 @@ class DatapasienController extends Controller
         if ($request->jenis_kelamin === 'P') {
             Datapasien::create([
                 'nama' => $request->nama,
-                'kode' => $request->kode_pasien,
+                'nik' => $request->nik,
+                'kode'=> $request->kode_pasien,
                 'alamat' => $request->alamat,
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'tgl_lahir' =>$request->tgl_lahir,
@@ -55,7 +56,8 @@ class DatapasienController extends Controller
         if($request->jenis_kelamin === 'L'){
             Datapasien::create([
                 'nama' => $request->nama,
-                'kode' => $request->kode_pasien,
+                'nik' => $request->nik,
+                'kode'=> $request->kode_pasien,
                 'alamat' => $request->alamat,
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'tgl_lahir' =>$request->tgl_lahir,
@@ -69,7 +71,8 @@ class DatapasienController extends Controller
             if ($request->jenis_kelamin === 'P') {
                 Datapasien::create([
                     'nama' => $request->nama,
-                    'kode' => $request->kode_pasien,
+                    'nik' => $request->nik,
+                    'kode'=> $request->kode_pasien,
                     'alamat' => $request->alamat,
                     'jenis_kelamin' => $request->jenis_kelamin,
                     'tgl_lahir' =>$request->tgl_lahir,
@@ -80,7 +83,8 @@ class DatapasienController extends Controller
             if($request->jenis_kelamin === 'L'){
                 Datapasien::create([
                     'nama' => $request->nama,
-                    'kode' => $request->kode_pasien,
+                    'nik' => $request->nik,
+                    'kode'=> $request->kode_pasien,
                     'alamat' => $request->alamat,
                     'jenis_kelamin' => $request->jenis_kelamin,
                     'tgl_lahir' =>$request->tgl_lahir,

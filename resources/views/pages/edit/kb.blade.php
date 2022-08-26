@@ -12,7 +12,7 @@ Edit Data Pasien kb
                     @csrf
                     <div class="row">
             
-                        <div class="col-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="id_pasien" class="col-form-label">Nama Pasien:</label>
                                 <select class="form-control" id="id_pasien" name="id_pasien">
@@ -21,6 +21,12 @@ Edit Data Pasien kb
                                     <option value="{{$item->id}}">{{$item->nama}}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="telp-pasien" class="col-form-label">No Telp Pasien:</label>
+                                <input type="text" class="form-control" name="no_tlp" value="{{$row->no_tlp}}" id="telp-pasien">
                             </div>
                         </div>
                         <div class="col-md-6">

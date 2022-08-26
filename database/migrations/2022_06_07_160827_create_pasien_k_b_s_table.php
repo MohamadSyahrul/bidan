@@ -17,6 +17,7 @@ class CreatePasienKBSTable extends Migration
             $table->id();
             $table->string('nama_suami');
             $table->string('suntik_kb');
+            $table->string('no_tlp');
             $table->date('tgl_kb');
             $table->date('tgl_kembali');
             $table->foreignId('id_pasien')->references('id')->on('tb_pasien')->onDelete('cascade');
