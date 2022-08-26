@@ -44,6 +44,8 @@ Data Pasien
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Lahir</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Umur</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Status</th>
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
@@ -69,6 +71,9 @@ Data Pasien
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_lahir}}</span>
+                                </td>
+                                <td>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->umur}}</span>
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">

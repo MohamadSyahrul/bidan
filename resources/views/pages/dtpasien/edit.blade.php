@@ -11,7 +11,7 @@ Edit Data Pasien
                     @method('PUT')
                     @csrf
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="kode-pasien" class="col-form-label">Kode Pasien:</label>
                                 <input type="text" class="form-control" name="kode_pasien" value="{{ $item->kode_pasien }}" id="kode-pasien">
@@ -19,21 +19,27 @@ Edit Data Pasien
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label for="umur-pasien" class="col-form-label">Umur:</label>
+                                <input type="text" class="form-control" name="umur" value="{{ $item->umur }}" id="umur-pasien">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label for="nik-pasien" class="col-form-label">NIK Pasien:</label>
-                                <input type="text" class="form-control" name="nik" value="{{$item->nik}}" id="nik-pasien">
+                                <input type="text" class="form-control" required name="nik" value="{{$item->nik}}" id="nik-pasien">
                             </div>
                         </div>
                         
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="nama-pasien" class="col-form-label">Nama Pasien:</label>
-                                <input type="text" class="form-control" name="nama" value="{{$item->nama}}" id="nama-pasien">
+                                <input type="text" class="form-control" required name="nama" value="{{$item->nama}}" id="nama-pasien">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="jenis-kelamin" class="col-form-label">Jenis Kelamin:</label>
-                                <select class="form-control" id="jenis-kelamin" name="jenis_kelamin">
+                                <select class="form-control" required id="jenis-kelamin" name="jenis_kelamin">
                                     <option>{{ $item->jenis_kelamin }}</option>
                                     <option value="L">Laki-laki</option>
                                     <option value="P">Perempuan</option>
@@ -43,7 +49,7 @@ Edit Data Pasien
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="tgl-lahir" class="col-form-label">Tanggal Lahir:</label>
-                                <input type="date" class="form-control" name="tgl_lahir" value="{{ $item->tgl_lahir }}"
+                                <input type="date" class="form-control" required name="tgl_lahir" value="{{ $item->tgl_lahir }}"
                                     id="tgl-lahir">
                             </div>
                         </div>
@@ -51,7 +57,13 @@ Edit Data Pasien
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="alamat-pasien" class="col-form-label">Alamat Pasien:</label>
-                                <textarea class="form-control" id="alamat-pasien" name="alamat">{{ $item->alamat }}</textarea>
+                                <textarea class="form-control" required id="alamat-pasien" name="alamat">{{ $item->alamat }}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="suami-pasien" class="col-form-label">Nama Suami:</label>
+                                <textarea class="form-control" id="suami-pasien" name="suami">{{ $item->suami }}</textarea>
                             </div>
                         </div>
 

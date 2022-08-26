@@ -52,6 +52,7 @@ class DatapasienController extends Controller
                 'kode_pasien' => 'P.0' . $p->id += 1,
                 'status' => true,
                 'suami' => $request->suami,
+                'umur' => $request->umur,
             ]);
         }
         if($request->jenis_kelamin === 'L'){
@@ -65,6 +66,7 @@ class DatapasienController extends Controller
                 'kode_pasien' => 'L.0' . $p->id += 1,
                 'status' => true,
                 'suami' => $request->suami,
+                'umur' => $request->umur,
                 
             ]);
         }
@@ -81,6 +83,7 @@ class DatapasienController extends Controller
                     'kode_pasien' =>'P.0' . 1,
                     'status' => true,
                     'suami' => $request->suami,
+                    'umur' => $request->umur,
                 ]);
             }
             if($request->jenis_kelamin === 'L'){
@@ -94,6 +97,7 @@ class DatapasienController extends Controller
                     'kode_pasien' =>'L.0' . 1,
                     'status' => true,
                     'suami' => $request->suami,
+                    'umur' => $request->umur,
         
                 ]);
     }

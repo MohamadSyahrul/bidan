@@ -33,7 +33,7 @@ Edit Data Pasien Hamil
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="idpasien" class="col-form-label">Nama Pasien:</label>
-                                <select class="form-control" id="idpasien" name="id_pasienhamil">
+                                <select class="form-control" required id="idpasien" name="id_pasienhamil">
                                     
                                     @foreach ($nmapasien as $item)
                                     <option value="{{$item->id}}">{{$item->nama}}</option>
@@ -41,24 +41,25 @@ Edit Data Pasien Hamil
                                 </select>
                             </div>
                         </div>
-                        {{-- <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="suami" class="col-form-label">Nama Suami:</label>
-                                <textarea class="form-control" id="suami" name="suami">{{ $row->suami }}</textarea>
-                            </div>
-                        </div> --}}
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="bb" class="col-form-label">Vitamin:</label>
-                                <textarea class="form-control" id="bb"
+                                <textarea class="form-control" required id="bb"
                                     name="vitamin">{{ $row->vitamin }}</textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="bb" class="col-form-label">Keterangan</label>
-                                <textarea class="form-control" id="bb"
+                                <textarea class="form-control" required id="bb"
                                     name="vitamin">{{ $row->keterangan }}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="tgl" class="col-form-label">Tanggal Datang Bulan Terakhir</label>
+                                <input class="form-control" id="tgl"
+                                    name="tgl_bulan_terakhir" value="{{ $row->tgl_bulan_terakhir }}">
                             </div>
                         </div>
                     </div>

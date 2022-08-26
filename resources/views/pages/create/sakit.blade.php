@@ -32,7 +32,7 @@ Tambah Data Pasien Sakit
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="id_pasiensakit" class="col-form-label">Nama Pasien:</label>
-                                <select class="form-control" id="id_pasiensakit" name="id_pasiensakit">
+                                <select class="form-control" required id="id_pasiensakit" name="id_pasiensakit">
                                     
                                     @foreach ($nmapasien as $item)
                                     <option value="{{$item->id}}">{{$item->nama}}</option>
@@ -43,13 +43,13 @@ Tambah Data Pasien Sakit
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="keluhan" class="col-form-label">Keluhan:</label>
-                                <input type="text" class="form-control" name="keluhan" id="keluhan">
+                                <input type="text" class="form-control" required name="keluhan" id="keluhan">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="keluhan" class="col-form-label">Keterangan</label>
-                                <input type="text" class="form-control" name="keterangan" id="keluhan">
+                                <input type="text" class="form-control" required name="keterangan" id="keluhan">
                             </div>
                         </div>
                     </div>

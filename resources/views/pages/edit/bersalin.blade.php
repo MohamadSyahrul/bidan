@@ -32,7 +32,7 @@ Edit Data Pasien Bersalin
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="idpasien" class="col-form-label">Nama Pasien:</label>
-                                <select class="form-control" id="idpasien" name="id_pasienbersalin">
+                                <select class="form-control" required id="idpasien" name="id_pasienbersalin">
                                     <option value="{{ $row->dataPasien->id  }}">{{ $row->dataPasien->nama }}</option>
                                     @foreach ($nmapasien as $item)
                                     <option value="{{$item->id}}">{{$item->nama}}</option>
@@ -43,7 +43,7 @@ Edit Data Pasien Bersalin
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="tgl-lahir" class="col-form-label">Tanggal lahir:</label>
-                                <input type="date" class="form-control" name="tgl_lahir" value="{{ $row->tgl_lahir }}"
+                                <input type="date" class="form-control" required name="tgl_lahir" value="{{ $row->tgl_lahir }}"
                                     id="tgl-lahir">
                             </div>
                         </div>

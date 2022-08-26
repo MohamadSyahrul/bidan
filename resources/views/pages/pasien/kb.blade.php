@@ -30,12 +30,9 @@ Pasien KB
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama
                                 </th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Alamat</th>
-                                {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Nama Suami</th> --}}
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Suntik KB</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Suntik KB
+                                </th>
+                                
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal KB</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -50,14 +47,9 @@ Pasien KB
                                     <p class="text-sm text-uppercase font-weight-bold mb-0">{{$item->dt_pasien->nama}}</p>
                                 </td>
                                 <td>
-                                    <p class="text-sm text-capitalize font-weight-bold mb-0">{{$item->dt_pasien->alamat}}</p>
+                                    <p class="text-sm text-uppercase font-weight-bold mb-0">{{$item->suntik_kb}}</p>
                                 </td>
-                                {{-- <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->nama_suami}}</span>
-                                </td> --}}
-                                <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->suntik_kb}}</span>
-                                </td>
+                               
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_kb}}</span>
                                 </td>

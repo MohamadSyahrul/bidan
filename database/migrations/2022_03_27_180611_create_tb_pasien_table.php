@@ -19,7 +19,8 @@ class CreateTbPasienTable extends Migration
             $table->string('kode');
             $table->string('nama');
             $table->string('alamat');
-            $table->string('suami');
+            $table->string('suami')->nullable();
+            $table->string('umur')->nullable();
             $table->char('jenis_kelamin', 1);
             $table->date('tgl_lahir');
             $table->boolean('status');

@@ -30,10 +30,10 @@ Pasien Hamil
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama
                                 </th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Alamat</th>
-                                {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Suami</th> --}}
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Keterangan
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tgl Datang Bulan Terakhir
+                                </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Vitamin</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -50,11 +50,11 @@ Pasien Hamil
 
                                 </td>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->dtpasien->alamat ?? ''}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->keterangan}}</span>
                                 </td>
-                                {{-- <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->suami}}</span>
-                                </td> --}}
+                                <td>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_bulan_terakhir}}</span>
+                                </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->vitamin}}</span>
                                 </td>

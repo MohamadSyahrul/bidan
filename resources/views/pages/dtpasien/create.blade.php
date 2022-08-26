@@ -10,29 +10,35 @@ Tambah Data Pasien
                 <form action="{{route('data-pasien.store')}}" method="POST">
                     @csrf
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="kode-pasien" class="col-form-label">Kode Pasien:</label>
-                                <input type="text" class="form-control" name="kode_pasien" placeholder="Masukan Kode Pasien" id="kode-pasien">
+                                <input type="text" class="form-control" required name="kode_pasien" placeholder="Masukan Kode Pasien" id="kode-pasien">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="umur-pasien" class="col-form-label">Umur:</label>
+                                <input type="text" class="form-control" required name="umur" value="{{ $item->umur }}" required id="umur-pasien">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="nik-pasien" class="col-form-label">NIK Pasien:</label>
-                                <input type="text" class="form-control" name="nik" placeholder="Masukan Nik Pasien" id="nik-pasien">
+                                <input type="text" class="form-control" required name="nik" placeholder="Masukan Nik Pasien" id="nik-pasien">
                             </div>
                         </div>
                        
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="nama-pasien" class="col-form-label">Nama Pasien:</label>
-                                <input type="text" class="form-control" name="nama" placeholder="nama" id="nama-pasien">
+                                <input type="text" class="form-control" required name="nama" placeholder="nama" id="nama-pasien">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="jenis-kelamin" class="col-form-label">Jenis Kelamin:</label>
-                                <select class="form-control" id="jenis-kelamin" name="jenis_kelamin">
+                                <select class="form-control" required id="jenis-kelamin" name="jenis_kelamin">
                                     
                                     <option value="L">Laki-laki</option>
                                     <option value="P">Perempuan</option>
@@ -42,14 +48,14 @@ Tambah Data Pasien
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="tangal-lahir" class="col-form-label">Tanggal Lahir:</label>
-                                <input type="date" class="form-control" name="tgl_lahir" id="tangal-lahir">
+                                <input type="date" class="form-control" required name="tgl_lahir" id="tangal-lahir">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="alamat-pasien" class="col-form-label">Alamat Pasien:</label>
-                                <textarea class="form-control" id="alamat-pasien" name="alamat"></textarea>
+                                <textarea class="form-control" id="alamat-pasien" required name="alamat"></textarea>
                             </div>
                         </div>
                         

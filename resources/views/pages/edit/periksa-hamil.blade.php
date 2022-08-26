@@ -33,7 +33,7 @@ Edit Data Pasien Hamil
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="idpasien" class="col-form-label">Nama Pasien:</label>
-                                <select class="form-control" id="idpasien" name="id_pasienhamil">
+                                <select class="form-control" required id="idpasien" name="id_pasienhamil">
                                     <option value="{{$row->id_pasienhamil}}" selected>{{$row->dtpasien->nama}}</option>
                                     @foreach ($nmapasien as $item)
                                     <option value="{{$item->id}}">{{$item->nama}}</option>
@@ -44,20 +44,20 @@ Edit Data Pasien Hamil
                         {{-- <div class="col-md-6">
                             <div class="form-group">
                                 <label for="suami" class="col-form-label">Nama Suami:</label>
-                                <textarea class="form-control" id="suami" name="suami">{{ $row->suami }}</textarea>
+                                <textarea class="form-control" required id="suami" name="suami">{{ $row->suami }}</textarea>
                             </div>
                         </div> --}}
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="bb" class="col-form-label">Vitamin:</label>
-                                <textarea class="form-control" id="bb"
+                                <textarea class="form-control" required id="bb"
                                     name="vitamin">{{ $row->vitamin }}</textarea>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="idpasien" class="col-form-label">Golongan Darah</label>
-                                <select class="form-control" id="idpasien" name="golongan_darah">
+                                <select class="form-control" required id="idpasien" name="golongan_darah">
                                     <option value="{{$row->golongan_darah}}" selected>{{$row->golongan_darah}}</option>
                                     <option value="AB" selected>AB</option>
                                     <option value="B" selected>B</option>
@@ -69,7 +69,7 @@ Edit Data Pasien Hamil
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="kode-pasien" class="col-form-label">Umur Kehamilan</label>
-                                <input type="text" class="form-control" name="umur_kehamilan" placeholder="Masukan Umur Kehamilan" id="kode-pasien">
+                                <input type="text" class="form-control" required name="umur_kehamilan" placeholder="Masukan Umur Kehamilan" id="kode-pasien">
                             </div>
                         </div>
                         <div class="col-6">

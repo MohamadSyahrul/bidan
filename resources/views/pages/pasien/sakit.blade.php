@@ -32,6 +32,8 @@ Pasien Sakit
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">NIK
                                 </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kode Pasien
+                                </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -40,6 +42,8 @@ Pasien Sakit
                                     Keluhan</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Lahir</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Keterangan</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Periksa</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -50,6 +54,9 @@ Pasien Sakit
                         <tbody id="myTable" class="text-center">
                             @foreach ($psnsakit as $item)
                             <tr>
+                                <td>
+                                    <p class="text-sm text-uppercase font-weight-bold mb-0">{{$item->data_pasien->nik}}</p>
+                                </td>
                                 <td>
                                     <p class="text-sm text-uppercase font-weight-bold mb-0">{{$item->data_pasien->kode}}</p>
                                 </td>
@@ -64,6 +71,9 @@ Pasien Sakit
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->data_pasien->tgl_lahir}}</span>
+                                </td>
+                                <td>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->keterangan}}</span>
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_periksa}}</span>

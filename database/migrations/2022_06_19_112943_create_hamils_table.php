@@ -20,6 +20,7 @@ class CreateHamilsTable extends Migration
             $table->string('golongan_darah')->nullable();
             $table->string('umur_kehamilan')->nullable();
             $table->string('umur_pasien')->nullable();
+            $table->string('tgl_bulan_terakhir')->nullable();
             $table->date('tgl_periksa');
             $table->timestamps();
         });
