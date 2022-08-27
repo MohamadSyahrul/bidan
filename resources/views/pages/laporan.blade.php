@@ -30,6 +30,15 @@ Laporan
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
+                                <label for="jenis-kelamin" class="col-form-label">Status Pasien</label>
+                                <select class="form-control" id="jenis-kelamin" name="status">
+                                    <option value="1">Aktif</option>
+                                    <option value="0">Non Aktif</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
                                 {{-- <label for="suami" class="col-form-label">Sampai Tanggal:</label> --}}
                                 <button type="submit" class="btn bg-gradient-primary">Submit</button>
                             </div>

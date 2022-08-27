@@ -29,11 +29,11 @@ class LaporanController extends Controller
             //     'sampai' => 'required',
             // ]);
 
-            $bersalin = Bersalin::whereDate('tgl_periksa','>=', $request->dari)->whereDate('tgl_periksa','>=', $request->sampai)->count();
-            $hamil = Hamil::whereDate('tgl_periksa','>=', $request->dari)->whereDate('tgl_periksa','>=', $request->sampai)->count();
-            $bayi = PasienBayi::whereDate('tgl_periksa','>=', $request->dari)->whereDate('tgl_periksa','>=', $request->sampai)->count();
-            $kb = PasienKB::whereDate('tgl_kb','>=', $request->dari)->whereDate('tgl_kb','>=', $request->sampai)->count();
-            $sakit = PasienSakit::whereDate('tgl_periksa','>=', $request->dari)->whereDate('tgl_periksa','>=', $request->sampai)->count();
+            $bersalin = Bersalin::whereRelation('DataPasien', 'status', $status)->whereDate('tgl_periksa','>=', $dari)->whereDate('tgl_periksa','<=', $sampai)->count();
+            $hamil = Hamil::whereRelation('dtpasien', 'status', $status)->whereDate('tgl_periksa','>=', $dari)->whereDate('tgl_periksa','<=', $sampai)->count();
+            $bayi = PasienBayi::whereRelation('dataPasien', 'status', $status)->whereDate('tgl_periksa','>=', $dari)->whereDate('tgl_periksa','<=', $sampai)->count();
+            $kb = PasienKB::whereRelation('dt_pasien', 'status', $status)->whereDate('tgl_kb','>=', $dari)->whereDate('tgl_kb','<=', $sampai)->count();
+            $sakit = PasienSakit::whereRelation('data_pasien', 'status', $status)->whereDate('tgl_periksa','>=', $dari)->whereDate('tgl_periksa','<=', $sampai)->count();
             return view('pages.laporan', compact('bersalin','hamil','bayi','kb','sakit','dari','sampai'));
 
         }
@@ -50,12 +50,13 @@ class LaporanController extends Controller
             // ]);
             $dari = $request->dari;
             $sampai = $request->sampai;
+            $status = $request->status;
             // dd($dari);
-            $bersalin = Bersalin::whereDate('tgl_periksa','>=', $dari)->whereDate('tgl_periksa','<=', $sampai)->count();
-            $hamil = Hamil::whereDate('tgl_periksa','>=', $dari)->whereDate('tgl_periksa','<=', $sampai)->count();
-            $bayi = PasienBayi::whereDate('tgl_periksa','>=', $dari)->whereDate('tgl_periksa','<=', $sampai)->count();
-            $kb = PasienKB::whereDate('tgl_kb','>=', $dari)->whereDate('tgl_kb','<=', $sampai)->count();
-            $sakit = PasienSakit::whereDate('tgl_periksa','>=', $dari)->whereDate('tgl_periksa','<=', $sampai)->count();
+            $bersalin = Bersalin::whereRelation('DataPasien', 'status', $status)->whereDate('tgl_periksa','>=', $dari)->whereDate('tgl_periksa','<=', $sampai)->count();
+            $hamil = Hamil::whereRelation('dtpasien', 'status', $status)->whereDate('tgl_periksa','>=', $dari)->whereDate('tgl_periksa','<=', $sampai)->count();
+            $bayi = PasienBayi::whereRelation('dataPasien', 'status', $status)->whereDate('tgl_periksa','>=', $dari)->whereDate('tgl_periksa','<=', $sampai)->count();
+            $kb = PasienKB::whereRelation('dt_pasien', 'status', $status)->whereDate('tgl_kb','>=', $dari)->whereDate('tgl_kb','<=', $sampai)->count();
+            $sakit = PasienSakit::whereRelation('data_pasien', 'status', $status)->whereDate('tgl_periksa','>=', $dari)->whereDate('tgl_periksa','<=', $sampai)->count();
             return view('pages.laporan', compact('bersalin','hamil','bayi','kb','sakit','dari','sampai'));
 
        
