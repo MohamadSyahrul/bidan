@@ -70,7 +70,7 @@ Data Pasien
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->jenis_kelamin}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_lahir}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->tgl_lahir))}}</span>
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->umur}}</span>

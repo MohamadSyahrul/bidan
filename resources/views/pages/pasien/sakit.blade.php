@@ -70,13 +70,13 @@ Pasien Sakit
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->keluhan}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->data_pasien->tgl_lahir}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->data_pasien->tgl_lahir))}}</span>
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->keterangan}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_periksa}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->tgl_periksa))}}</span>
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->keterangan}}</span>

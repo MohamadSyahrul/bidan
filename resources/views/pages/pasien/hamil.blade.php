@@ -53,13 +53,13 @@ Pasien Hamil
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->keterangan}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_bulan_terakhir}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->tgl_bulan_terakhir))}}</span>
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->vitamin}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_periksa}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->tgl_periksa))}}</span>
                                 </td>
                                 <td class="align-middle">
                                     <a href="{{route('pasien-hamil.edit', $item->id)}}" class="text-secondary font-weight-bold text-xs">

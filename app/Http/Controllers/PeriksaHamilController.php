@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Hamil;
 use App\Models\Datapasien;
 use Illuminate\Http\Request;
@@ -15,8 +16,22 @@ class PeriksaHamilController extends Controller
      */
     public function index()
     {
+        // $time = Carbon::now()->format('Y-m-d');
+
+
         $nmapasien = Datapasien::all();
         $psnhamil = Hamil::with(['dtpasien'])->get();
+        // foreach ($psnhamil as $row) {
+        //     $date1 = date_create($row->tgl_bulan_terakhir);
+        //     $date2 = Carbon::now()->format('Y-m-d');
+        //     $date3 = date_create($date2);
+
+        //     $diff = date_diff($date1, $date3);
+        //     $months = $diff->format("%m months");
+        //     $days = $diff->format("%d days");
+        //     $result = $months.' '.$days;
+        //     // dd($result);
+        // }
         return view('pages.pasien.periksa-hamil', compact('psnhamil', 'nmapasien'));
     }
 

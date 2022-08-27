@@ -51,10 +51,10 @@ Pasien KB
                                 </td>
                                
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_kb}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->tgl_kb))}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_kembali}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->tgl_kembali))}}</span>
                                 </td>
                                 <td class="align-middle">
                                     <a href="{{route('pasien-kb.edit', $item->id)}}" class="text-secondary font-weight-bold text-xs">

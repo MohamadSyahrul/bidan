@@ -61,7 +61,7 @@ Pasien Bayi
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->berat_badan}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->dataPasien->tgl_lahir ?? ''}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->dataPasien->tgl_lahir))}}</span>
                                 </td>
                                 <td>
                                     <p class="text-sm text-uppercase font-weight-bold mb-0">
@@ -69,7 +69,7 @@ Pasien Bayi
 
                                 </td>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_periksa}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->tgl_periksa))}}</span>
                                 </td>
                                 <td class="align-middle">
                                     <a href="{{route('pasien-bayi.edit', $item->id)}}" class="text-secondary font-weight-bold text-xs">

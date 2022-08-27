@@ -56,13 +56,13 @@ Pasien Bersalin
 
                                 </td>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->Hamil->vitamin}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->Hamil->vitamin ?? ''}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_lahir}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->tgl_lahir))}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_periksa}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->tgl_periksa))}}</span>
                                 </td>
                                 <td class="align-middle">
                                     <a href="{{route('pasien-bersalin.edit', $item->id)}}" class="text-secondary font-weight-bold text-xs">

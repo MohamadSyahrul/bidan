@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\PasienKB;
 use App\Models\Datapasien;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class PasienKBController extends Controller
 {
@@ -97,4 +99,35 @@ class PasienKBController extends Controller
         return redirect()->route('pasien-kb.index')->with('success', 'Data berhasil dihapus !');
 
     }
+
+    public function notifwa(Request $request, $id){
+
+        $no_telp = PasienKB::where('id', $id)->pluck('no_tlp')->first();
+        $kb = PasienKB::where('id', $id)->pluck('tgl_kembali')->first();
+
+        $message = 'Wayae KB';
+        
+        $apikey = '9BW18M4DDUPAASA0';
+        $number_key = 'Wkcp0dD1DyUhGO0h';
+      if (Carbon::now()->format('Y-m-d') === $kb) {
+        # code...
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json'
+            ])->withOptions([
+              'debug' => false,
+              'connect_timeout' =>false,
+              'timeout' => false,
+              'verify' => false,
+            ])->post('https://api.watzap.id/v1/send_message',[
+
+                'api_key' => $apikey,
+                'number_key' => $number_key,
+                
+                'phone_no' => $no_telp,
+                'message' => $message
+            ]);
+      }
+            return $response;
+    }
+
 }
