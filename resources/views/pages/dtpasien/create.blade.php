@@ -19,7 +19,7 @@ Tambah Data Pasien
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="umur-pasien" class="col-form-label">Umur:</label>
-                                <input type="text" class="form-control" required name="umur" value="{{ $item->umur }}" required id="umur-pasien">
+                                <input type="text" class="form-control" required name="umur" placeholder="Masukan Umur" required id="umur-pasien">
                             </div>
                         </div>
                         <div class="col-md-6">
