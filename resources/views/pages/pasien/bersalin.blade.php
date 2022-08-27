@@ -34,8 +34,6 @@ Pasien Bersalin
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Nama Suami</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Vitamin</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Lahir</th>
@@ -56,9 +54,6 @@ Pasien Bersalin
                                     <span class="text-sm text-uppercase font-weight-bold">
                                         {{$item->dataPasien->nama ?? ''}}</span>
 
-                                </td>
-                                <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->dataPasien->suami}}</span>
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->Hamil->vitamin}}</span>
