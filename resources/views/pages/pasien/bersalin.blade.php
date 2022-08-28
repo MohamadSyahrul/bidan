@@ -35,6 +35,10 @@ Pasien Bersalin
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Vitamin</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Berat Badan</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Panjang Bayi</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Lahir</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -57,6 +61,12 @@ Pasien Bersalin
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->Hamil->vitamin ?? ''}}</span>
+                                </td>
+                                <td>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->bb_bayi ?? ''}}</span>
+                                </td>
+                                <td>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->panjangbayi ?? ''}}</span>
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->tgl_lahir))}}</span>

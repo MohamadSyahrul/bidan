@@ -61,13 +61,13 @@ Pasien Bayi
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->berat_badan}}</span>
                                 </td>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->dataPasien->tgl_lahir))}}</span>
-                                </td>
-                                <td>
                                     <p class="text-sm text-uppercase font-weight-bold mb-0">
                                         {{$item->dataPasien->umur ?? ''}}</p>
-
-                                </td>
+                                        
+                                    </td>
+                                    <td>
+                                        <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->dataPasien->tgl_lahir))}}</span>
+                                    </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->tgl_periksa))}}</span>
                                 </td>

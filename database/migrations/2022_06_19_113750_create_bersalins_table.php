@@ -17,6 +17,8 @@ class CreateBersalinsTable extends Migration
             $table->id();
             $table->date('tgl_lahir');
             $table->date('tgl_periksa');
+            $table->string('bb_bayi')->nullable();
+            $table->string('panjangbayi')->nullable();
             $table->timestamps();
         });
     }

@@ -47,6 +47,18 @@ Edit Data Pasien Bersalin
                                     id="tgl-lahir">
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="bb_bayi" class="col-form-label">Berat Badan Bayi:</label>
+                                <input type="text" class="form-control" id="bb_bayi" value="{{$row->bb_bayi}}" name="bb_bayi">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="panjangbayi" class="col-form-label">Panjang Bayi:</label>
+                                <input type="text" class="form-control" id="panjangbayi" value="{{$row->panjangbayi}}" name="panjangbayi">
+                            </div>
+                        </div>
 
                     </div>
                     <div class="float-end">
