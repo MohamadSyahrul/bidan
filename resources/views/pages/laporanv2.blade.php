@@ -18,15 +18,28 @@ Laporan
                         <div class="row g-3 ">
                             <div class="col-md-2">
                                 <div class="form-group">
+                                    <label>Dari:</label>
                                     <input type="date" class="form-control" name="start" id="surat" required>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
+                                    <label>Sampai:</label>
                                     <input type="date" class="form-control" name="end" id="surat" required></div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
+                                    <label>Status Pasien:</label>
+                                    <select class="form-control" id="statu" name="status">
+                                        <option>Pilih..</option>
+                                        <option value="0">Non Aktif</option>
+                                        <option value="1">Aktif</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label></label>
                                     <button type="submit" class="btn bg-primary text-white">Filter</button>
                                 </div>
                             </div>

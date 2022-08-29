@@ -68,7 +68,7 @@ class LaporanController extends Controller
         if (request()->start || request()->end) {
             $start = Carbon::parse(request()->start)->toDateTimeString();
             $end = Carbon::parse(request()->end)->toDateTimeString();
-            $ds = Datapasien::whereBetween('created_at',[$start,$end])->get();
+            $ds = Datapasien::where('status', request()->status)->whereBetween('created_at',[$start,$end])->get();
 
             $bersalin = Bersalin::whereBetween('tgl_periksa', [$start, $end])->count();
             // dd($bersalin);
