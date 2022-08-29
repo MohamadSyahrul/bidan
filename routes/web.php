@@ -27,7 +27,7 @@ Route::get('/', function () {
 });
 
 // Route::get('tambah-pasien', function () {
-//     return view('pages.dtpasien.create');
+//     return view('pages.laporanv2');
 // });
 
 
@@ -51,6 +51,10 @@ Route::resource('pasien-kb', PasienKBController::class)->middleware(['auth']);
 Route::resource('pasien-bersalin', BersalinController::class)->middleware(['auth']);
 Route::resource('pasien-hamil', HamilController::class)->middleware(['auth']);
 Route::resource('periksa-pasien-hamil', PeriksaHamilController::class)->middleware(['auth']);
+
 Route::get('laporan', [LaporanController::class, 'index'])->middleware(['auth']);
 Route::post('laporan', [LaporanController::class, 'rekap'])->middleware(['auth'])->name('rekap');
+
+Route::get('laporanversi2', [LaporanController::class, 'laporanv2'])->middleware(['auth']);
+
 require __DIR__.'/auth.php';

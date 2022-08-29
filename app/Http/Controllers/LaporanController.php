@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Hamil;
 use App\Models\Bersalin;
+use App\Models\Datapasien;
 use App\Models\PasienKB;
 use App\Models\PasienBayi;
 use App\Models\PasienSakit;
@@ -60,5 +62,29 @@ class LaporanController extends Controller
             return view('pages.laporan', compact('bersalin','hamil','bayi','kb','sakit','dari','sampai'));
 
        
+    }
+
+    public function laporanv2(){
+        if (request()->start || request()->end) {
+            $start = Carbon::parse(request()->start)->toDateTimeString();
+            $end = Carbon::parse(request()->end)->toDateTimeString();
+            $ds = Datapasien::whereBetween('created_at',[$start,$end])->get();
+
+            $bersalin = Bersalin::whereBetween('tgl_periksa', [$start, $end])->count();
+            // dd($bersalin);
+            $hamil = Hamil::whereBetween('tgl_periksa', [$start, $end])->count();
+            $bayi = PasienBayi::whereBetween('tgl_periksa', [$start, $end])->count();
+            $kb = PasienKB::whereBetween('tgl_kb', [$start, $end])->count();
+            $sakit = PasienSakit::whereBetween('tgl_periksa', [$start, $end])->count();
+        } else {
+            $ds = Datapasien::latest()->get();
+            $bersalin = Bersalin::count();
+            // dd($bersalin);
+            $hamil = Hamil::count();
+            $bayi = PasienBayi::count();
+            $kb = PasienKB::count();
+            $sakit = PasienSakit::count();
+        }
+        return view('pages.laporanv2', compact('ds','bersalin','hamil','bayi','kb','sakit'));
     }
 }

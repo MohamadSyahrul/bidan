@@ -100,7 +100,7 @@ class PasienKBController extends Controller
 
     }
 
-    public function notifwa(Request $request, $id){
+    public function notifwa($id){
 
         $no_telp = PasienKB::where('id', $id)->pluck('no_tlp')->first();
         $kb = PasienKB::where('id', $id)->pluck('tgl_kembali')->first();
@@ -119,15 +119,13 @@ class PasienKBController extends Controller
               'timeout' => false,
               'verify' => false,
             ])->post('https://api.watzap.id/v1/send_message',[
-
                 'api_key' => $apikey,
                 'number_key' => $number_key,
-                
                 'phone_no' => $no_telp,
                 'message' => $message
             ]);
       }
-            return $response;
+         dd($response);
     }
 
 }

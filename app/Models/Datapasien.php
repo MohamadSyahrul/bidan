@@ -15,7 +15,7 @@ class Datapasien extends Model
     protected $primaryKey = "id";
     protected $table = "tb_pasien";
     protected $guarded = [];
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function pasienBayi()
     {
