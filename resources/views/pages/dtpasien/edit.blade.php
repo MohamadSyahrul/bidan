@@ -11,16 +11,10 @@ Edit Data Pasien
                     @method('PUT')
                     @csrf
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <div class="form-group">
                                 <label for="kode-pasien" class="col-form-label">Kode Pasien:</label>
                                 <input type="text" class="form-control" name="kode_pasien" value="{{ $item->kode_pasien }}" id="kode-pasien">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="umur-pasien" class="col-form-label">Umur:</label>
-                                <input type="text" class="form-control" name="umur" value="{{ $item->umur }}" id="umur-pasien">
                             </div>
                         </div>
                         <div class="col-md-6">

@@ -60,9 +60,20 @@ Pasien Bayi
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->berat_badan}}</span>
                                 </td>
-                                <td>
+                                <?php
+                                        $date1 = date_create($item->dataPasien->tgl_lahir);
+                                    $date2 = Carbon\Carbon::now()->format('Y-m-d');
+                                    $date3 = date_create($date2);
+                                    
+                                    $diff = date_diff($date1, $date3);
+                                    // $tahun = $diff->format("%y tahun");
+                                    $months = $diff->format("%m bulan");
+                                    $day = $diff->format("%d hari");
+                                    $umur = $months.' '.$day;
+                                ?>
+                                    <td>
                                     <p class="text-sm text-uppercase font-weight-bold mb-0">
-                                        {{$item->dataPasien->umur ?? ''}}</p>
+                                        {{$umur}}</p>
                                         
                                     </td>
                                     <td>

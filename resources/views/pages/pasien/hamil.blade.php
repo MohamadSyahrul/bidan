@@ -36,6 +36,8 @@ Pasien Hamil
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Vitamin</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Umur Kehamilan</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Periksa</th>
                                 <th class="text-secondary opacity-7"></th>
@@ -55,6 +57,17 @@ Pasien Hamil
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->tgl_bulan_terakhir))}}</span>
                                 </td>
+                                <?php
+                                $date1 = date_create($item->tgl_bulan_terakhir);
+                                   $date2 = Carbon\Carbon::now()->format('Y-m-d');
+                                   $date3 = date_create($date2);
+                                   
+                                   $diff = date_diff($date1, $date3);
+                                   $months = $diff->format("%m bulan");
+                                   $days = $diff->format("%d hari");
+                                   $result = $months.' '.$days;
+                               ?>
+                               <td><span class="text-sm text-capitalize font-weight-bold">{{$result}}</span></td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{$item->vitamin}}</span>
                                 </td>

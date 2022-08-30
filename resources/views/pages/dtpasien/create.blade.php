@@ -10,16 +10,10 @@ Tambah Data Pasien
                 <form action="{{route('data-pasien.store')}}" method="POST">
                     @csrf
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <div class="form-group">
                                 <label for="kode-pasien" class="col-form-label">Kode Pasien:</label>
                                 <input type="text" class="form-control" required name="kode_pasien" placeholder="Masukan Kode Pasien" id="kode-pasien">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="umur-pasien" class="col-form-label">Umur:</label>
-                                <input type="text" class="form-control" required name="umur" placeholder="Masukan Umur" required id="umur-pasien">
                             </div>
                         </div>
                         <div class="col-md-6">

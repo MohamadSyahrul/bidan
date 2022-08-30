@@ -72,8 +72,18 @@ Data Pasien
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">{{date('d-m-Y', strtotime($item->tgl_lahir))}}</span>
                                 </td>
+                                <?php
+                                    $date1 = date_create($item->tgl_lahir);
+                                   $date2 = Carbon\Carbon::now()->format('Y-m-d');
+                                   $date3 = date_create($date2);
+                                   
+                                   $diff = date_diff($date1, $date3);
+                                   $tahun = $diff->format("%y tahun");
+                                   $months = $diff->format("%m bulan");
+                                   $umur = $tahun.' '.$months;
+                               ?>
                                 <td>
-                                    <span class="text-sm text-capitalize font-weight-bold">{{$item->umur}}</span>
+                                    <span class="text-sm text-capitalize font-weight-bold">{{$umur}}</span>
                                 </td>
                                 <td>
                                     <span class="text-sm text-capitalize font-weight-bold">

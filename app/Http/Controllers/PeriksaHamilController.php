@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Hamil;
-use App\Models\Datapasien;
+use App\Models\PeriksaaHamil;
 use Illuminate\Http\Request;
 
 class PeriksaHamilController extends Controller
@@ -19,19 +19,8 @@ class PeriksaHamilController extends Controller
         // $time = Carbon::now()->format('Y-m-d');
 
 
-        $nmapasien = Datapasien::all();
-        $psnhamil = Hamil::with(['dtpasien'])->get();
-        // foreach ($psnhamil as $row) {
-        //     $date1 = date_create($row->tgl_bulan_terakhir);
-        //     $date2 = Carbon::now()->format('Y-m-d');
-        //     $date3 = date_create($date2);
-
-        //     $diff = date_diff($date1, $date3);
-        //     $months = $diff->format("%m months");
-        //     $days = $diff->format("%d days");
-        //     $result = $months.' '.$days;
-        //     // dd($result);
-        // }
+        $nmapasien = Hamil::all();
+        $psnhamil = PeriksaaHamil::with(['hamil'])->get();
         return view('pages.pasien.periksa-hamil', compact('psnhamil', 'nmapasien'));
     }
 
@@ -42,8 +31,8 @@ class PeriksaHamilController extends Controller
      */
     public function create()
     {
-        $nmapasien = Datapasien::all();
-        return view('pages.create.periksa-hamil', compact('nmapasien'));
+        $nmapasien = Hamil::with('dtpasien')->get();
+        return view('pages.create.periksahamil', compact('nmapasien'));
     }
 
     /**
@@ -54,7 +43,12 @@ class PeriksaHamilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tanggal = Carbon::now();
+        $dp = $request->all();
+        $dp['tgl_periksa'] = $tanggal->toDateString();
+        PeriksaaHamil::create($dp);
+        return redirect()->route('periksa-pasien-hamil.index')->with('success', 'Data berhasil disimpan !');
+
     }
 
     /**
@@ -76,9 +70,9 @@ class PeriksaHamilController extends Controller
      */
     public function edit($id)
     {
-        $row = Hamil::findOrfail($id);
-        $nmapasien = Datapasien::all();
-        return view('pages.edit.periksa-hamil', compact('nmapasien', 'row'));
+        $update = PeriksaaHamil::findOrfail($id);
+        $nmapasien = PeriksaaHamil::with(['hamil'])->get();
+        return view('pages.edit.periksa-hamil', compact('nmapasien', 'update'));
     }
 
     /**
@@ -93,7 +87,7 @@ class PeriksaHamilController extends Controller
         $tanggal = Carbon::now();
         $ps = $request->all();
         $ps['tgl_periksa'] = $tanggal->toDateString();
-        $item = Hamil::findOrFail($id);
+        $item = PeriksaaHamil::findOrFail($id);
         $item->update($ps);
         return redirect()->route('periksa-pasien-hamil.index')->with('success', 'Data berhasil diperbarui !');
     }
@@ -106,6 +100,10 @@ class PeriksaHamilController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $item = PeriksaaHamil::findOrFail($id);
+        $item->delete();
+        return redirect()->route('periksa-pasien-hamil.index')->with('success', 'Data berhasil dihapus !');
+
     }
 }

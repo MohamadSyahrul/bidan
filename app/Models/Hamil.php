@@ -13,10 +13,15 @@ class Hamil extends Model
     protected $primaryKey = "id";
     protected $table = "hamils";
     protected $guarded = [];
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function dtpasien()
     {
         return $this->belongsTo( Datapasien::class, 'id_pasienhamil', 'id' );
+    }
+
+    public function hamil()
+    {
+        return $this->hasMany( PeriksaaHamil::class, 'id_hamil', 'id' );
     }
 }

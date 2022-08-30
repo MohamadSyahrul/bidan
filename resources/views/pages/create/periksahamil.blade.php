@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('title')
-Edit Data Pasien Hamil
+Tambah Data Pasien Hamil
 @endsection
 @push('plugin-style')
 <!-- css -->
@@ -30,9 +30,8 @@ Edit Data Pasien Hamil
     <div class="col-12">
         <div class="card card-frame">
             <div class="card-body">
-                <form action="{{route('periksa-pasien-hamil.update', $update->id)}}" method="POST">
+                <form action="{{route('periksa-pasien-hamil.store')}}" method="POST">
                     @csrf
-                    @method('put')
                     <div class="row">
 
                         <div class="col-md-6">
@@ -42,7 +41,7 @@ Edit Data Pasien Hamil
                                 <select class="form-control" required id="id_pasienhamil" name="id_hamil">
 
                                     @foreach ($nmapasien as $item)
-                                    <option value="{{$item->hamil->dtpasien->id}}">{{$item->hamil->dtpasien->nama}}</option>
+                                    <option value="{{$item->dtpasien->id}}">{{$item->dtpasien->nama}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -50,13 +49,13 @@ Edit Data Pasien Hamil
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="vitamin" class="col-form-label">Vitamin:</label>
-                                <input type="text" class="form-control" required name="vitamin" value="{{$update->vitamin}}" id="vitamin">
+                                <input type="text" class="form-control" required name="vitamin" id="vitamin">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="keluhan" class="col-form-label">Keterangan</label>
-                                <input type="text" class="form-control" required name="keterangan" value="{{$update->keterangan}}" id="keluhan">
+                                <input type="text" class="form-control" required name="keterangan" id="keluhan">
                             </div>
 
                         </div>
@@ -64,18 +63,17 @@ Edit Data Pasien Hamil
                             <div class="form-group">
                                 <label for="idpasien" class="col-form-label">Golongan Darah</label>
                                 <select class="form-control" required id="idpasien" name="golongan_darah">
-                                    <option value="{{$update->golongan_darah}}" selected>Golongan darah saat ini ({{$update->golongan_darah}})</option>
-                                    <option value="A">A</option>
-                                    <option value="AB">AB</option>
-                                    <option value="B">B</option>
-                                    <option value="O">O</option>
+                                    <option value="A" selected>A</option>
+                                    <option value="AB" selected>AB</option>
+                                    <option value="B" selected>B</option>
+                                    <option value="O" selected>O</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="tgl" class="col-form-label">Perkembangan Janin</label>
-                                <input type="text" class="form-control" value="{{$update->perkembanganjanin}}" id="tgl"
+                                <input type="text" class="form-control" id="tgl"
                                     name="perkembanganjanin">
                             </div>
                         </div>
