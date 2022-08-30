@@ -29,11 +29,11 @@ Pasien Hamil
                         <thead>
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Vitamin</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Umur Kehamilan</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Umur Pasien</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Golongan Darah</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Keterangan Tindakan</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Umur Kehamilan</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Perkembangan Janin</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Vitamin</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tanggal periksa</th>
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
                         </thead>
@@ -41,31 +41,21 @@ Pasien Hamil
                             @foreach ($psnhamil as $item)
                             <tr>
                                 <td> <span class="text-sm text-uppercase font-weight-bold">{{$item->hamil->dtpasien->nama ?? ''}}</span></td>
-                                <td><span class="text-sm text-capitalize font-weight-bold">{{$item->vitamin}}</span></td>
+                                <td><span class="text-sm text-capitalize font-weight-bold">{{$item->keterangan}}</span></td>
                                 <?php
                                  $date1 = date_create($item->hamil->tgl_bulan_terakhir);
-                                    $date2 = Carbon\Carbon::now()->format('Y-m-d');
-                                    $date3 = date_create($date2);
-                                    
-                                    $diff = date_diff($date1, $date3);
-                                    $months = $diff->format("%m bulan");
-                                    $days = $diff->format("%d hari");
-                                    $result = $months.' '.$days;
-                                ?>
+                                 $date2 = Carbon\Carbon::now()->format('Y-m-d');
+                                 $date3 = date_create($date2);
+                                 
+                                 $diff = date_diff($date1, $date3);
+                                 $months = $diff->format("%m bulan");
+                                 $days = $diff->format("%d hari");
+                                 $result = $months.' '.$days;
+                                 ?>
                                 <td><span class="text-sm text-capitalize font-weight-bold">{{$result}}</span></td>
-                                <?php
-                                $date1 = date_create($item->hamil->dtpasien->tgl_lahir);
-                                   $date2 = Carbon\Carbon::now()->format('Y-m-d');
-                                   $date3 = date_create($date2);
-                                   
-                                   $diff = date_diff($date1, $date3);
-                                   $tahun = $diff->format("%y tahun");
-                                   $months = $diff->format("%m bulan");
-                                   $umur = $tahun.' '.$months;
-                               ?>
-                                <td><span class="text-sm text-capitalize font-weight-bold">{{$umur}}</span></td>
-                                <td><span class="text-sm text-capitalize font-weight-bold">{{$item->golongan_darah}}</span></td>
-                                <td><span class="text-sm text-capitalize font-weight-bold">{{$item->keterangan}}</span></td>
+                                <td><span class="text-sm text-capitalize font-weight-bold">{{$item->perkembanganjanin}}</span></td>
+                                <td><span class="text-sm text-capitalize font-weight-bold">{{$item->vitamin}}</span></td>
+                                <td><span class="text-sm text-capitalize font-weight-bold">{{$item->tgl_periksa}}</span></td>
                                 <td class="align-middle">
                                     <a href="{{route('periksa-pasien-hamil.edit', $item->id)}}" class="text-secondary font-weight-bold text-xs">
                                         Edit
